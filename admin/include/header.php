@@ -24,7 +24,8 @@
 		<div class="row">
 			<div class="col-md-2 ">
 				<ul class="nav nav-pills nav-stacked menu_gauche">
-					<li><a href="#">Compétences</a></li>
+					<li><a data-toggle="confirmation" data-title="Open Google?"
+ href="#">Compétences</a></li>
 					<li><a href="#">Expériences</a></li>
 					<li><a href="#">Formations</a></li>
 					<li><a href="#">Inter-titres</a></li>

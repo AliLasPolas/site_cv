@@ -15,7 +15,7 @@ header{
 .menu_gauche{
 	background-color: #222;
 	width: 100%;
-	height: calc(100% - 80px);
+	height: 100%;
 	line-height: 22px;
 	border-top: solid 1px #111111;
 	border-bottom: solid 1px #111111;
@@ -29,12 +29,6 @@ header{
 }
 .menu_gauche a:hover{
 	color: #000;
-}
-
-.main{
-	float: left;
-	width: 85%;
-	display: block;
 }
 
 .time{
