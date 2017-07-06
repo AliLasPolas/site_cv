@@ -8,6 +8,7 @@ if ($_POST) {
 	$requete = $requete->fetch();
 }
 
-echo json_encode($requete);
+var_dump($requete);
+//echo json_encode($requete);
 
  ?>

@@ -24,15 +24,14 @@
 		<div class="row">
 			<div class="col-md-2 ">
 				<ul class="nav nav-pills nav-stacked menu_gauche">
-					<li><a data-toggle="confirmation" data-title="Open Google?"
- href="#">Compétences</a></li>
-					<li><a href="#">Expériences</a></li>
-					<li><a href="#">Formations</a></li>
-					<li><a href="#">Inter-titres</a></li>
-					<li><a href="#">Loisirs</a></li>
-					<li><a href="#">Realisations</a></li>
-					<li><a href="#">Titres des CVs</a></li>
-					<li><a href="#">Utilisateurs</a></li>
+					<li><a href="competences.php">Compétences</a></li>
+					<li><a href="experiences.php">Expériences</a></li>
+					<li><a href="formations">Formations</a></li>
+					<li><a href="intertitres.php">Inter-titres</a></li>
+					<li><a href="loisirs.php">Loisirs</a></li>
+					<li><a href="realisations.php">Realisations</a></li>
+					<li><a href="titres.php">Titres des CVs</a></li>
+					<li><a href="utilisateurs.php">Utilisateurs</a></li>
 					
 				</ul>
 			</div>

@@ -2,22 +2,14 @@
 
 <?php 
 
-$contenu_table = "";
 
 if ($_POST) {
-	$delete = $pdoCV ->query("DELETE FROM competences WHERE id_competence = '" . $_POST['id_competence'] . "'");
+	$delete = $pdoCV ->query("DELETE FROM competences WHERE id_competence = '" . $_POST['id_info'] . "'");
 
-	$competences = $pdoCV->query("SELECT * FROM competences WHERE utilisateur_id = '1' ");
-	$competences = $competences->fetchAll();
-	foreach ($competences as $competence) {
-		$contenu_table .= '<tr><td class="competence">';
-		$contenu_table .= $competence['competence'];
-		$contenu_table .= '</td><td><span class="supprimer glyphicon glyphicon-remove"><div class="hidden">';
-		$contenu_table .= $competence['id_competence'];
-		$contenu_table .= '</div></span></td></tr>';
-	}
+	$infos = $pdoCV->query("SELECT * FROM competences WHERE utilisateur_id = '1' ");
+	$infos = $infos->fetchAll();
 
-	echo $_POST['id_competence'];
+	echo $_POST['id'];
 }
 
 
