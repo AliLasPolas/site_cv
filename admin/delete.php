@@ -4,12 +4,12 @@
 
 
 if ($_POST) {
-	$delete = $pdoCV ->query("DELETE FROM competences WHERE id_competence = '" . $_POST['id_info'] . "'");
+	$delete = $pdoCV ->query("DELETE FROM ".$_POST['table']." WHERE id_".$_POST['table']." = '" . $_POST['valeurs'] . "'");
+	var_dump($delete);
 
-	$infos = $pdoCV->query("SELECT * FROM competences WHERE utilisateur_id = '1' ");
-	$infos = $infos->fetchAll();
+	// $infos = $pdoCV->query("SELECT * FROM ".$_POST['table']." WHERE utilisateur_id = '1' ");
+	// $infos = $infos->fetchAll();
 
-	echo $_POST['id'];
 }
 
 

@@ -10,4 +10,6 @@ $pdoCV= new PDO('mysql:host=' . $hote . ';dbname=' . $bdd, $utilisateur, $passe)
 //$pdoCV est le nom de la variable de la connexion qui sert partout ou l'on doit se servir de cette connexion
 
 $pdoCV->exec("SET NAMES utf8");
+
+
  ?>

@@ -1,8 +1,8 @@
 <?php require_once'include/header.php'; ?>
 
 <?php 
-$entete = "loisir";
-$entetes = "loisirs";
+$entete = "titre_cv";
+$entetes = "titres_cv";
 $noms = $pdoCV->query("SELECT * FROM utilisateurs WHERE utilisateur_id = '1' ");
 $noms = $noms->fetch();
 

@@ -2,9 +2,7 @@
 <?php 
 
 if ($_POST) {
-	$pdoCV->query("DELETE FROM competences WHERE 1 = 1");
-
-
+	$pdoCV->query("DELETE FROM ".$_POST['table']." WHERE 1 = 1");
 }
 
  ?>

@@ -3,7 +3,7 @@
 <?php 
 
 if ($_POST) {
-	$update = $pdoCV->query("UPDATE `competences` SET `competence`= '" . $_POST['modif'] . "' WHERE id_competence = ".$_POST['id_modif']." ");
+	$update = $pdoCV->query("UPDATE `".$_POST['table']."` SET `".$_POST['champ']."`= '" . $_POST['valeur'] . "' WHERE id_".$_POST['table']." = ".$_POST['id']." ");
 }
 
  ?>
