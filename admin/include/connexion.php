@@ -31,6 +31,4 @@ function admin(){ // Cette fonction m'indique si le membre est admin
 	}
 	return false;
 }
-
-
- ?>
+?>

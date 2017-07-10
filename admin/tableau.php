@@ -64,21 +64,23 @@
 			 ?>
 			<!-- Création d'une boucle for les input, ajoute a l'input un id du nom du champ pour la récupération en JS -->
 			<?php 
-			echo '<tr class="ajout">';
-				for ($i=0; $i < count($nomsInfos); $i++) { 
-					if ($entete != 'utilisateur' &&  $i == (count($nomsInfos)-1 ) ){
-						echo '<td><input type="text" name="ajout" class="ajout" id="'.$nomsInfos[$i][0].'" placeholder="Fixe" disabled></td>';
+			if ($entetes != 'utilisateurs') {
+				echo '<tr class="ajout">';
+					for ($i=0; $i < count($nomsInfos); $i++) { 
+						if ($entete != 'utilisateur' &&  $i == (count($nomsInfos)-1 ) ){
+							echo '<td><input type="text" name="ajout" class="ajout" id="'.$nomsInfos[$i][0].'" placeholder="Fixe" disabled></td>';
+						}
+						elseif ($i == 0) 
+						{
+							echo '<td><input type="text" name="ajout" class="ajout" id="'.$nomsInfos[$i][0].'" placeholder="Fixe" disabled></td>';
+						}
+						else{
+							echo '<td><input type="text" name="ajout" class="ajout" id="'.$nomsInfos[$i][0].'" placeholder="Ajout de '.$nomsInfos[$i][0].'"></td>';
+						}
 					}
-					elseif ($i == 0) 
-					{
-						echo '<td><input type="text" name="ajout" class="ajout" id="'.$nomsInfos[$i][0].'" placeholder="Fixe" disabled></td>';
-					}
-					else{
-						echo '<td><input type="text" name="ajout" class="ajout" id="'.$nomsInfos[$i][0].'" placeholder="Ajout de '.$nomsInfos[$i][0].'"></td>';
-					}
-				}
-				echo '<td><span class="ajout glyphicon glyphicon-plus"></span><td>';
-			echo "</tr>";
+					echo '<td><span class="ajout glyphicon glyphicon-plus"></span><td>';
+				echo "</tr>";
+			}
 			?>
 		</tbody>
 	</table>

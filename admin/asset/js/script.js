@@ -149,6 +149,7 @@ $(function(){
 	});	
 
 	$(document).on('keypress', 'input.modification', function(e){
+		let laspolas = $(this).val();
 		if (e.which == 13) {
 			modification(e);
 		}
@@ -156,14 +157,41 @@ $(function(){
 
 	$(document).on('click', function(e){
 		if ( !$(e.target).is('input.modification') ) {
-
 			$('input.modification').removeClass('hidden');
 			$('input.modification').addClass('hidden');
 			$('td>p').removeClass('hidden');
-			if ( $(e.target).is('td>p') ) {		
-				$(e.target).addClass('hidden');
-				$(e.target).siblings('input').removeClass('hidden');
+			if ( $(e.target).is('td>p') ) {
+				if ($(e.target).attr('class').match("^texte_id_")) {
+					$('.validation').html('<div class="alert alert-danger">Vous ne pouvez pas modifier l\'id ! </div>');
+				}
+				else if ($(e.target).attr('class').match("^texte_utilisateur_id") ){
+					$('.validation').html('<div class="alert alert-danger">Vous ne pouvez pas modifier l\'id utilisateur ! </div>');
+				}
+				else if ($(e.target).hasClass("texte_statut") ){
+					$('.validation').html('<div class="alert alert-danger">Vous ne pouvez pas modifier le statut utilisateur ! </div>');
+				}
+				else{
+					$(e.target).addClass('hidden');
+					$(e.target).siblings('input').removeClass('hidden');
+				}
 			}
 		}
 	});
+	// Code Konami
+	var k = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
+	n = 0;
+	$(document).keydown(function (e) {
+	    if (e.keyCode === k[n++]) {
+	        if (n === k.length) {
+	            alert('Le code Konami... \nVous entrez le niveau secret.');
+	            window.location.replace("/site_cv/front/secret.php");
+	            n = 0;
+	            return false;
+	        }
+	    }
+	    else {
+	        n = 0;
+	    }
+	});
+
 });
