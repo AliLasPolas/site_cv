@@ -1,7 +1,25 @@
 <!-- Affichage des titres et noms ainsi que du nombre d'infos sur la page-->
+	<?php 
+		if (loggedIn()==false  ) {
+			header("location:/site_cv/admin/index_admin.php");
+		}
+		$noms = $pdoCV->query("SELECT * FROM utilisateurs WHERE utilisateur_id = '".$_SESSION['membre']['utilisateur_id']."' ");
+		$noms = $noms->fetch();
 
-<div class="hidden table_bdd"><?= $entetes; ?></div>
- <div class="col-md-10 tableau">
+
+		if ( admin() ) {
+			$infos = $pdoCV->query("SELECT * FROM ".$entetes." ");
+		}
+		else{
+			$infos = $pdoCV->query("SELECT * FROM ".$entetes." WHERE utilisateur_id = '".$_SESSION['membre']['utilisateur_id']."' ");
+		}
+		$infos = $infos->fetchAll();
+		$nomsInfos = $pdoCV->query("DESCRIBE ".$entetes."");
+		$nomsInfos = $nomsInfos->fetchAll();
+
+	 ?>
+
+	<div class="hidden table_bdd"><?= $entetes; ?></div>
  	<h1> <?php echo strtoupper($entetes); ?> </h1>
  	<h3> <?php echo 'Le cv de ' . $noms['prenom'] . ' contient <span id="compte">' . count($infos) . ' </span>'.$entetes.' ' ?> </h2>
  	<div class="validation">

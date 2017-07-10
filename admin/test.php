@@ -12,7 +12,7 @@
 </head>
 <body>
 	<?php 
-		$sql = $pdoCV->query("SELECT * FROM utilisateurs WHERE id_utilisateur = '1' ");
+		$sql = $pdoCV->query("SELECT * FROM utilisateurs WHERE id_utilisateur = '".$_SESSION['membre']['utilisateur_id']."' ");
 		$ligne = $sql->fetch();
 	 ?>
 	<p>Muh gal ain't no hobbit <?= $ligne['prenom'] . ' ' . $ligne['nom'] ?> </p>
