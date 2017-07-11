@@ -48,8 +48,7 @@
 		  </div>
 		</div>';
 	 }
-	 loggedIn();
-	  ?>
+	 ?>
 	 </header>
 
 
@@ -65,7 +64,9 @@
 					<li><a href="/site_cv/admin/loisirs.php">Loisirs</a></li>
 					<li><a href="/site_cv/admin/realisations.php">Realisations</a></li>
 					<li><a href="/site_cv/admin/titres.php">Titres des CVs</a></li>
+					<?php if ( admin() ): ?>
 					<li><a href="/site_cv/admin/utilisateurs.php">Utilisateurs</a></li>
+					<?php endif ?>
 					
 				</ul>
 			</div>

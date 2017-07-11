@@ -1,0 +1,34 @@
+body{
+	background-image: url(../img/bg06.jpg);
+	background-size: cover;
+	color: #dddddd;
+	/*background-color: rgba(0,0,0,0.9);*/
+}
+
+.main{
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(30, 40, 55,0.4);
+}
+
+/*div{
+	height: 100%;
+}
+*/
+header .row{
+	height: 25px;
+}
+
+main .row{
+	height: calc(99vh - 50px);
+	position: relative
+	}
+	.content{
+		position: absolute;
+		top: 35%;
+		text-align: center;
+	}
+
+footer .row{
+	height: 25px;
+}

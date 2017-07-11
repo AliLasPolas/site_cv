@@ -3,12 +3,7 @@
 <?php 
 
 	if (loggedIn() ) {
-		$titres = $pdoCV->query("SELECT * FROM titres_cv WHERE utilisateur_id = '".$_SESSION['membre']['utilisateur_id']."' ");
-		$titres = $titres->fetch();
-
-
-		echo "<h1> ".$titres['titre_cv']." ".$titres['accroche']." </h1>";
-		echo "<h3>Bienvenue sur l'admin de site CV </h3>";
+		header('location:/site_cv/admin/profil.php');
 
 	}
 	else {

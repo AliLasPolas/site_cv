@@ -84,4 +84,11 @@
 			?>
 		</tbody>
 	</table>
+
+	<textarea id="ck" name="ck" class="ck"></textarea>
+	<script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
+	<script type="text/javascript">
+		CKEDITOR.replace( 'ck' );
+	</script>
+
  </div>
