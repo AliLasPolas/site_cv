@@ -1,25 +1,61 @@
 body{
+	color: #dddddd;
+	background-color: rgba(40,40,48,1);
 	background-image: url(../img/bg06.jpg);
 	background-size: cover;
-	color: #dddddd;
-	/*background-color: rgba(0,0,0,0.9);*/
+	font-family: 'Roboto Condensed', sans-serif;
+	transition: 2s;
 }
 
-.main{
+p{
+	cursor: pointer;
+	position: fixed;
+}
+
+.contenu{
+	position: relative;
+	top: 0vh;
+	left: 0vw;
 	height: 100vh;
 	width: 100vw;
-	background-color: rgba(30, 40, 55,0.4);
+	background-color: rgba(40, 40, 48,0.4);
+	overflow: hidden;
 }
 
-/*div{
-	height: 100%;
+.nav{
+	position: fixed;
+	left: -100vw;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(40, 40, 48,0.8);
 }
+
+li{
+	position: relative;
+	top: 32%;
+	height: 7%;
+	
+/*	padding-top: 1%; 
+	padding-bottom: 1%; 
 */
-header .row{
+    vertical-align: middle;
+	width: 100%;
+	text-align: center;
+	font-size: 22px;
+	/*font-style: italic;*/
+	font-weight: lighter;
+	cursor: pointer;
+	transition: 0.6s;
+}
+li:hover{
+	color: #FDEBD0;
+}
+
+header{
 	height: 25px;
 }
 
-main .row{
+main {
 	height: calc(99vh - 50px);
 	position: relative
 	}
@@ -29,6 +65,6 @@ main .row{
 		text-align: center;
 	}
 
-footer .row{
+footer{
 	height: 25px;
 }
