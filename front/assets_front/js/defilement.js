@@ -88,11 +88,9 @@ $(function(){
 					$('.contenu').fadeOut('slow');
 					console.log('déroulement');
 					scroll = false;
-					$('.close')
 				});
-			}	
-
-			
+			}
+			// $('.div_bg').removeClass('hidden');			
 		}
 
 	function enroulementMenu(e){

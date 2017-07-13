@@ -2,14 +2,15 @@ body{
 	color: #dddddd;
 	background-color: rgba(40,40,48,1);
 	background-image: url(../img/bg06.jpg);
-	background-size: cover;
-	font-family: 'Roboto Condensed', sans-serif;
-	transition: 2s;
+	font-family: 'Playfair Display', serif;
+	/*transition: 1s;*/
 }
 
 p{
 	cursor: pointer;
 	position: fixed;
+	font-size: 18px;
+	font-weight: lighter;
 }
 
 .contenu{
@@ -27,7 +28,8 @@ p{
 	left: -100vw;
 	height: 100vh;
 	width: 100vw;
-	background-color: rgba(40, 40, 48,0.8);
+	background-color: rgba(40, 40, 48,0.95);
+
 }
 
 li{
@@ -67,4 +69,25 @@ main {
 
 footer{
 	height: 25px;
+}
+
+.competences:hover{}
+
+.div_bg{
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+}
+
+.bg_competences{
+	background-image: url(../img/bg_competences.jpg);
+}
+.bg_experiences{
+	background-image: url(../img/bg_experiences.jpg);
+}
+.bg_projets{
+	background-image: url(../img/bg04.jpg);
+}
+.bg_contact{
+	background-image: url(../img/bg03.jpg);
 }

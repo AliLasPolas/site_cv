@@ -22,39 +22,12 @@
 
 
 	 ?></a>
-	 <?php 
-	 if (loggedIn() == true ) {
-	 	echo '<a href="?action=deconnexion" id="deconnexion">Déconnexion</a>';
-	 }
-	 else{
-	 	echo '<button id="bouton_connexion" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Connexion</button>
-		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-				<form method="post" action="" id="form_connexion">
-					<fieldset class="form-group">
-						<label for="pseudo">Pseudonyme</label>
-						<input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="Entrez vos identifiants">
-					</fieldset>
-					<fieldset class="form-group">
-						<label for="mdp">Mot de passe</label>
-						<input type="password" class="form-control" name="mdp" id="mdp" placeholder="A l\'abri des regards">
-					</fieldset>
-					<fieldset class="form-group">
-						<input type="submit" class="form-control" name="connexion" id="connexion"">
-					</fieldset>
-				</form>  
-  		    </div>
-		  </div>
-		</div>';
-	 }
-	 ?>
 	 </header>
 
 
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-2 ">
+			<div class="col-md-2 col-sm">
 				<ul class="nav nav-pills nav-stacked menu_gauche">
 					<li><a href="/site_cv/admin/index_admin.php">Index</a></li>
 					<li><a href="/site_cv/admin/competences.php">Compétences</a></li>
@@ -67,6 +40,35 @@
 					<?php if ( admin() ): ?>
 					<li><a href="/site_cv/admin/utilisateurs.php">Utilisateurs</a></li>
 					<?php endif ?>
+					<li>	 <?php 
+						 if (loggedIn() == true ) {
+						 	echo '<a href="?action=deconnexion" id="deconnexion">Déconnexion</a>';
+						 }
+						 else{
+						 	echo '<a id="bouton_connexion" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Connexion</a>
+							<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+									<form method="post" action="" id="form_connexion">
+										<fieldset class="form-group">
+											<label for="pseudo">Pseudonyme</label>
+											<input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="Entrez vos identifiants">
+										</fieldset>
+										<fieldset class="form-group">
+											<label for="mdp">Mot de passe</label>
+											<input type="password" class="form-control" name="mdp" id="mdp" placeholder="A l\'abri des regards">
+										</fieldset>
+										<fieldset class="form-group">
+											<input type="submit" class="form-control" name="connexion" id="connexion"">
+										</fieldset>
+									</form>  
+					  		    </div>
+							  </div>
+							</div>';
+						 }
+						 ?>
+					</li>
+
 					
 				</ul>
 			</div>

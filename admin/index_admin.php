@@ -22,7 +22,7 @@
 				<input type="submit" class="form-control" id="connexion" name="connexion">
 			</fieldset>
 		</form>
-		<p> Vous devez vous connecter pour accéder au contenus. Utilisez le formulaire de contact pour obtenir des identifiants. </p>';
+		<p> Vous devez vous connecter pour accéder aux contenus. Utilisez le formulaire de contact pour obtenir des identifiants. </p>';
 	}
 	?>
 	</div>

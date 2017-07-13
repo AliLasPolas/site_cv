@@ -15,10 +15,6 @@ header>a{
 header>a:hover{
 	color: #fff;
 }
-#connexion,#deconnexion{
-	float: right;
-	line-height: 35px;
-}
 .container{
 	padding: 0px;
 	margin: 0px;
@@ -60,19 +56,20 @@ td {
   word-break:break-all;
 }
 table {
-        display: block;
-        overflow-x: auto;
-}
-
-#bouton_connexion{
-	background-color: transparent;
-	border: 0;
-	float: right;
-	line-height: 35px;
-	font-size: 22px;
-
+	display: block;
+	overflow-x: auto;
 }
 
 #form_connexion{
 	padding: 5%;
+}
+
+#bouton_connexion{
+	background-color: #222;
+	border: none;
+	text-align: left;
+}
+#bouton_connexion:hover{
+	color: #000;
+	background-color: white;
 }
