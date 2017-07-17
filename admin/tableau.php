@@ -56,6 +56,7 @@
 					echo '<tr class="tr_' .$entetes .'">';
 					for ($j=0; $j < count($infos[0])/2; $j++) {
 						echo '<td class="case_'.$nomsInfos[$j][0].'"><p class="texte_'.$nomsInfos[$j][0].'">' . $infos[$i][$j] . '</p><input class="modification hidden" type="text" name="text" value="' . $infos[$i][$j]. '"></td>';
+						
 					}
 					// Icone utilisée pour le JS
 					echo '<td class="td_suppression"><span id="'.$infos[$i][0].'" class="supprimer glyphicon glyphicon-remove"></span></td></tr>';

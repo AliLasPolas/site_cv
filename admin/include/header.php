@@ -29,7 +29,14 @@
 		<div class="row">
 			<div class="col-md-2 col-sm">
 				<ul class="nav nav-pills nav-stacked menu_gauche">
-					<li><a href="/site_cv/admin/index_admin.php">Index</a></li>
+					<li><a href="/site_cv/admin/index_admin.php">
+					<?php if (isset($_SESSION['membre']) ) {
+						echo "Profil";
+					}
+					else {
+					 	echo "Index";
+					 } ?>
+					</a></li>
 					<li><a href="/site_cv/admin/competences.php">Compétences</a></li>
 					<li><a href="/site_cv/admin/experiences.php">Expériences</a></li>
 					<li><a href="/site_cv/admin/formations.php">Formations</a></li>
@@ -77,7 +84,7 @@
 
 			<?php 
 				if ($_POST) {
-					if ($_POST['connexion']) {
+					if (isset($_POST['connexion']) ) {
 						// var_dump($_POST);
 						$login = $pdoCV->query("SELECT * FROM utilisateurs WHERE pseudo = '".addslashes($_POST['pseudo'])."' ");
 						if ( $login->rowCount() > 0) {

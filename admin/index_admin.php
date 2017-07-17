@@ -23,6 +23,7 @@
 			</fieldset>
 		</form>
 		<p> Vous devez vous connecter pour accéder aux contenus. Utilisez le formulaire de contact pour obtenir des identifiants. </p>';
+		
 	}
 	?>
 	</div>
