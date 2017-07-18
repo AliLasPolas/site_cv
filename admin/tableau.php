@@ -22,8 +22,9 @@
 	<div class="hidden table_bdd"><?= $entetes; ?></div>
  	<h1> <?php echo strtoupper($entetes); ?> </h1>
  	<h3> <?php echo 'Le cv de ' . $noms['prenom'] . ' contient <span id="compte">' . count($infos) . ' </span>'.$entetes.' ' ?> </h2>
+ 	
  	<div class="validation">
- 	<div class="alert alert-info"> Appuyez sur la croix pour supprimer une info ou sur le plus pour en ajouter une. Cliquez sur une information pour la modifier. </div>
+ 		<div class="alert alert-info"> Appuyez sur la croix pour supprimer une info ou sur le plus pour en ajouter une. Cliquez sur une information pour la modifier. </div>
  	</div>
  	<?php 
  	// echo "<br>";

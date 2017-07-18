@@ -1,7 +1,7 @@
 $(function(){
 
 	let scroll = true;
-	let tableau_pages = ['accueil.html', 'competences.html', 'experiences.html', 'realisations.html', 'contact.html' ]
+	let tableau_pages = ['default.php', 'competences.php', 'experiences.php', 'realisations.php', 'contact.php' ]
 	let index_tableau = 0;
 
 	function suivant(e){
@@ -25,7 +25,7 @@ $(function(){
 					opacity:"0",
 				}, 500, function(){
 					$.ajax({
-						url: tableau_pages[index_tableau],
+						url: '/site_cv/front_cv/app/Views/default/'+tableau_pages[index_tableau],
 						type: 'post'
 					}).
 					done(function(data){
@@ -59,7 +59,7 @@ $(function(){
 					opacity:"0",
 				}, 500, function(){
 					$.ajax({
-						url: tableau_pages[index_tableau],
+						url: '/site_cv/front_cv/app/Views/default/'+tableau_pages[index_tableau],
 						type: 'post'
 					}).
 					done(function(data){

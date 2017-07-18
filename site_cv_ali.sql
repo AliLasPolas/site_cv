@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 10 Juillet 2017 à 17:01
+-- Généré le :  Mar 18 Juillet 2017 à 17:00
 -- Version du serveur :  10.1.13-MariaDB
 -- Version de PHP :  5.6.23
 
@@ -30,6 +30,7 @@ CREATE TABLE `competences` (
   `id_competences` int(11) NOT NULL,
   `test` varchar(45) NOT NULL,
   `competence` varchar(45) NOT NULL,
+  `niveau` int(11) NOT NULL,
   `utilisateur_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -37,14 +38,14 @@ CREATE TABLE `competences` (
 -- Contenu de la table `competences`
 --
 
-INSERT INTO `competences` (`id_competences`, `test`, `competence`, `utilisateur_id`) VALUES
-(211, 'test', 'mmmmm', 1),
-(212, 'qsdfqsfd', 'mmmmm', 1),
-(213, 'qsdfqf', 'mmmmm', 1),
-(214, 'sdsd', 'mmmmm', 1),
-(215, 'dddd', 'mmmmm', 1),
-(216, 'ztqert', 'zqetqt', 1),
-(217, 'sse', 'poqzdqzd', 1);
+INSERT INTO `competences` (`id_competences`, `test`, `competence`, `niveau`, `utilisateur_id`) VALUES
+(211, 'test', 'mmmmm', 42, 1),
+(212, 'qsdfqsfd', 'mmmmm', 55, 1),
+(213, 'qsdfqf', 'mmmmm', 0, 1),
+(214, 'sdsd', 'mmmmm', 0, 1),
+(215, 'dddd', 'mmmmm', 0, 1),
+(216, 'ztqert', 'zqetqt', 0, 1),
+(217, 'sse', 'poqzdqzd', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -178,7 +179,8 @@ INSERT INTO `realisations` (`id_realisations`, `titre_r`, `sous_titre_r`, `dates
 (8, 'fff', 'ggg', 'ezezee', 'kkkk', 1),
 (9, 'titre', 'soustitre', 'dates', 'description', 1),
 (10, 'titre', 'soustitre', 'dates', 'description', 1),
-(11, 'titras', 'soustitras', 'datas', 'descriptionas', 1);
+(11, 'titras', 'soustitras', 'datas', 'descriptionas', 1),
+(12, 'eee', 'dddd', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -217,12 +219,10 @@ CREATE TABLE `utilisateurs` (
   `telephone` varchar(20) NOT NULL,
   `mdp` varchar(13) NOT NULL,
   `pseudo` varchar(13) NOT NULL,
-  `avatar` varchar(255) NOT NULL,
-  `age` int(5) NOT NULL,
+  `lien_avatar` varchar(255) NOT NULL,
   `date_naissance` date NOT NULL,
   `sexe` enum('Femme','Homme','Autre') NOT NULL,
   `etat_civil` enum('M.','Mme','Autre') NOT NULL,
-  `statut_marital` varchar(13) NOT NULL,
   `adresse` text NOT NULL,
   `code_postal` int(11) NOT NULL,
   `ville` varchar(25) NOT NULL,
@@ -234,9 +234,8 @@ CREATE TABLE `utilisateurs` (
 -- Contenu de la table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`statut`, `prenom`, `nom`, `email`, `telephone`, `mdp`, `pseudo`, `avatar`, `age`, `date_naissance`, `sexe`, `etat_civil`, `statut_marital`, `adresse`, `code_postal`, `ville`, `pays`, `utilisateur_id`) VALUES
-(1, 'Ali', 'MD Nizamuddin', 'nizamuddin.r.ali@gmail.com', '0695399935', 'mdp01', 'mdnR', 'mdnR_avatar.jpg', 20, '1996-07-18', 'Homme', 'M.', 'Célibataire', '16 rue Alcide d''Orbigny', 93380, 'Pierrefitte-Sur-Seine', 'France', 1),
-(0, 'Mariam', 'Kone', 'mariam.kone@lepoles.com', '0712345678', 'mdp02', 'k.mariam', 'k.mariam.jpg', 26, '1990-07-04', 'Femme', 'Mme', '?', 'Quelque pars', 93380, 'Pierrefitte-Sur-Seine', 'France', 3);
+INSERT INTO `utilisateurs` (`statut`, `prenom`, `nom`, `email`, `telephone`, `mdp`, `pseudo`, `lien_avatar`, `date_naissance`, `sexe`, `etat_civil`, `adresse`, `code_postal`, `ville`, `pays`, `utilisateur_id`) VALUES
+(1, 'Ali', 'MD Nizamuddin', 'nizamuddin.r.ali@gmail.com', '0695399935', 'mdp01', 'mdnR', '10852636_1512370885713561_966194995_n.jpg', '1996-07-12', 'Homme', 'M.', '16 rue Alcide d''Orbigny', 93380, 'Pierrefitte-Sur-Seine', 'France', 1);
 
 --
 -- Index pour les tables exportées
@@ -323,7 +322,7 @@ ALTER TABLE `loisirs`
 -- AUTO_INCREMENT pour la table `realisations`
 --
 ALTER TABLE `realisations`
-  MODIFY `id_realisations` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_realisations` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `titres_cv`
 --
@@ -333,7 +332,7 @@ ALTER TABLE `titres_cv`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `utilisateur_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `utilisateur_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

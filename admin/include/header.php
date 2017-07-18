@@ -11,23 +11,29 @@
 
 </head>
 <body>
-	<header><a href="/site_cv/admin/index_admin.php">Administration Site CV - <?php 
-	if (loggedIn() ) {
+	<header>
+	<div class="row" style="margin-right: 0">
+		<div class="col-xs-10 col-sm-10 col-md-12 col-lg-12">
+			<a href="/site_cv/admin/index_admin.php">Administration Site CV <?php 
+			if (loggedIn() ) {
 
-		$noms = $pdoCV->query("SELECT * FROM utilisateurs WHERE utilisateur_id = '".$_SESSION['membre']['utilisateur_id']."' ");
-		$noms = $noms->fetch();
-		echo $noms['prenom'] . ' ' . $noms['nom'];
-	}
+				$noms = $pdoCV->query("SELECT * FROM utilisateurs WHERE utilisateur_id = '".$_SESSION['membre']['utilisateur_id']."' ");
+				$noms = $noms->fetch();
+				// echo $noms['prenom'] . ' ' . $noms['nom'];
+			}
 
 
 
-	 ?></a>
-	 </header>
+			 ?></a>
+		</div>
+	 	<div class="col-xs-1 col-sm-1 hidden-md hidden-lg menu" style="overflow: hidden"><span class="glyphicon glyphicon-list"></span></div>
+	</div>
+</header>
 
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2 col-sm">
+			<div class="col-md-2 hidden-xs hidden-sm menu_small">
 				<ul class="nav nav-pills nav-stacked menu_gauche">
 					<li><a href="/site_cv/admin/index_admin.php">
 					<?php if (isset($_SESSION['membre']) ) {

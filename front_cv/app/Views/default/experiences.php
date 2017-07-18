@@ -1,0 +1,5 @@
+<div class="col-md-12 content">
+	<div>
+		Timeline competences (animé)
+	</div>
+</div>

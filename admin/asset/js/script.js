@@ -135,6 +135,22 @@ $(function(){
 		
 	}
 
+	$(document).on("click", ".menu>span", function(e){
+		console.log('click');
+		if ( $('.menu_small').hasClass('hidden-sm') ) {
+			$('.menu_small').removeClass('hidden-sm');
+			$('.menu_small').removeClass('hidden-xs');
+			$('.menu_small').addClass('col-sm-12');
+			$('.menu_small').addClass('col-xs-12');	
+		}
+		else{
+			$('.menu_small').addClass('hidden-sm');
+			$('.menu_small').addClass('hidden-xs');
+			$('.menu_small').removeClass('col-sm-12');
+			$('.menu_small').removeClass('col-xs-12');
+		}
+	});
+
 
 
 	

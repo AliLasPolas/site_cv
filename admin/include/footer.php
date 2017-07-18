@@ -3,8 +3,7 @@
 	</div>
 <footer>
 	<span class="time">
-		<?php $dt = new DateTime();
-		echo $dt->format('d-m-Y H:i:s');?>
+		COPYRIGHT Ali MD Nizamuddin - 2017     
 	</span>
 </footer>
 <script src="/site_cv/admin/asset/js/jquery-3.2.1.js"></script>

@@ -53,7 +53,14 @@ if ($_POST) {
 	foreach ($_POST as $key => $value) {
 		$_POST[$key] = addslashes($_POST[$key]);
 	}
-	$modification = $pdoCV->query("UPDATE `utilisateurs` SET `statut`='".$_SESSION['membre']['statut']."',`prenom`='".$_POST['prenom']."',`nom`='".$_POST['nom']."',`email`='".$_POST['email']."',`telephone`='".$_POST['telephone']."',`mdp`='".$_POST['mdp']."',`pseudo`='".$_POST['pseudo']."',`lien_avatar`='".$_FILES['lien_avatar']['name']."',`date_naissance`='".$_POST['date_naissance']."',`sexe`='".$_POST['sexe']."',`etat_civil`='".$_POST['etat_civil']."',`adresse`='".$_POST['adresse']."',`code_postal`='".$_POST['code_postal']."',`ville`='".$_POST['ville']."',`pays`='".$_POST['pays']."',`utilisateur_id`='".$_SESSION['membre']['utilisateur_id']."' WHERE utilisateur_id = '".$_SESSION['membre']['utilisateur_id']."' ");
+	if (!$_FILES['lien_avatar']['name']) {
+		$lien_photo = $_SESSION['membre']['lien_avatar'];
+	}
+	else{
+		$lien_photo = $_FILES['lien_avatar']['name'];
+
+	}
+	$modification = $pdoCV->query("UPDATE `utilisateurs` SET `statut`='".$_SESSION['membre']['statut']."',`prenom`='".$_POST['prenom']."',`nom`='".$_POST['nom']."',`email`='".$_POST['email']."',`telephone`='".$_POST['telephone']."',`mdp`='".$_POST['mdp']."',`pseudo`='".$_POST['pseudo']."',`lien_avatar`='".$lien_photo."',`date_naissance`='".$_POST['date_naissance']."',`sexe`='".$_POST['sexe']."',`etat_civil`='".$_POST['etat_civil']."',`adresse`='".$_POST['adresse']."',`code_postal`='".$_POST['code_postal']."',`ville`='".$_POST['ville']."',`pays`='".$_POST['pays']."',`utilisateur_id`='".$_SESSION['membre']['utilisateur_id']."' WHERE utilisateur_id = '".$_SESSION['membre']['utilisateur_id']."' ");
 		copy($_FILES['lien_avatar']['tmp_name'], 'asset/img/'.$_FILES['lien_avatar']['name']);
 	$nouvelle_session = $pdoCV->query("SELECT * FROM utilisateurs WHERE utilisateur_id = ".$_SESSION['membre']['utilisateur_id']." ");
 	$nouvelle_session = $nouvelle_session->fetch();
@@ -235,8 +242,8 @@ elseif ($_GET['action'] == 'edit'){
 
 ?>
 
-<span class="hidden" id="hidden_id"><?php echo $_SESSION['membre']['utilisateur_id']; ?></span>
 <?php require_once'include/footer.php'; ?>
+<span class="hidden" id="hidden_id"><?php echo $_SESSION['membre']['utilisateur_id']; ?></span>
 <script type="text/javascript">
 $(document).ready(function() {
     var panels = $('.user-infos');
@@ -269,16 +276,18 @@ $(document).ready(function() {
 
     $('#supprimer').on("click",function(e){
     	e.preventDefault();
-    	$.ajax({
-    		url: 'delete.php',
-			type : 'POST',
-			data : {
-				table : 'utilisateurs',
-				valeurs : $('#hidden_id').text(),
-				supprimer_user : 'true'
-			}
-    	});
-    	window.location.replace("/site_cv/admin/index_admin.php?action=deconnexion");
+    	if ( confirm('Voulez vous vraiment supprimer le profil définitivement ?') ) {
+	    	$.ajax({
+	    		url: 'delete.php',
+				type : 'POST',
+				data : {
+					table : 'utilisateurs',
+					valeurs : $('#hidden_id').text(),
+					supprimer_user : 'true'
+				}
+	    	});
+	    	window.location.replace("/site_cv/admin/index_admin.php?action=deconnexion");
+    	}
     });
 
 

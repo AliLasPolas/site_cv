@@ -3,6 +3,8 @@
 namespace Controller;
 
 use \W\Controller\Controller;
+use Model\Db\DbFactory;
+
 
 class DefaultController extends Controller
 {
@@ -12,7 +14,19 @@ class DefaultController extends Controller
 	 */
 	public function home()
 	{
-		$this->show('default/home');
+	    $this->show('default/accueil');
+
+	}
+
+	/*Page de competences*/
+
+	public function competences()
+	{
+	    DbFactory::start();
+		# Récupération du contenu de la table
+	    $competences = \ORM::for_table('competences')->find_result_set();
+	    $this->show('default/competences', ['competences' => $competences]);
+
 	}
 
 }
