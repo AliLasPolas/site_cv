@@ -1,8 +1,17 @@
+<?php require_once'../admin/include/connexion.php'; ?>
+<?php 
+
+	$connexion = $pdoCV->query("SELECT * FROM titres_cv t, utilisateurs u WHERE t.utilisateur_id = u.utilisateur_id AND t.utilisateur_id = 1 ");
+	$index = $connexion->fetch();
+	// var_dump($index);
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
-	<title>Site CV Front</title>
+	<title><?= $index['titre_cv']?></title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets_front/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
@@ -32,45 +41,45 @@
 
 	<div class="container-fluid contenu">
 		<header class="row">
-			<div class="col-xs-1">
+			<div class="col-xs-2 col-md-1">
 				<p class="menu"> Menu </p>
 			</div>
-			<div class="col-xs-2 col-xs-offset-4">
+			<div class="col-xs-4 col-xs-offset-2 col-md-2 col-md-offset-4">
 				<p class="haut">
 					Haut de page atteint
 				</p>
 			</div>
-			<div class="col-xs-offset-4 col-xs-1 fermer hidden">
+			<div class="col-xs-offset-2 col-xs-2 col-md-1 col-md-offset-4 fermer hidden">
 				<p>Fermer</p>
 			</div>
-			<div class="col-xs-offset-4 col-xs-1">
+			<div class="col-xs-offset-2 col-xs-2 col-md-1 col-md-offset-4">
 				<p class="admin"> <a href="/site_cv/admin/index_admin.php"> Admin </a></p>
 			</div>
 		</header>
 		<main class="row">
-			<div class="col-xs-offset-3 col-xs-6 content">
-				<h1>Ali MD Nizamuddin</h1>
-				<h2>Développeur web full-stack</h2>
-				<h3>Intégration et Développement web - En recherche de stage</h3>
+			<div class="col-md-offset-3 col-md-6 col-xs-12 col-sm-12 accueil content">
+				<h1> <?= $index['prenom']?> <?= $index['nom']?> </h1>
+				<h2><?= $index['titre_cv']?></h2>
+				<h3><?= $index['accroche']?></h3>
 				<h4>Scroll bas pour continuer</h4>
 			</div>
 		</main>
 		<footer class="row">
-			<div class="col-xs-1 scroll_down">
+			<div class="col-xs-3 col-md-1 scroll_down">
 				<p> descendre </p>
 			</div>
-			<div class="col-xs-1 scroll_up">
+			<div class="col-xs-3 col-md-1 scroll_up">
 				<p> remonter </p>
 			</div>
-			<div class="col-xs-2 col-xs-offset-3">
+			<div class="col-xs-2 col-md-2 col-md-offset-3 col-xs-offset-0">
 				<p class="bas">	
 					Bas de page atteint
 				</p>
 			</div>
-			<div class="col-xs-offset-3 col-xs-1">
+			<div class="col-xs-offset-1 col-xs-2 col-md-1 col-md-offset-3">
 				<p> A propos </p>
 			</div>
-			<div class="col-xs-1">
+			<div class="hidden-xs col-md-1 col-sm-1">
 				<p>Heure</p>
 			</div>
 		</footer>
@@ -83,6 +92,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/mousewheel/3.1.13/jquery.mousewheel.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha256-0rguYS0qgS6L4qVzANq4kjxPLtvnp5nn2nB5G1lWRv4=" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="assets_front/js/defilement.js"></script>
 <script type="text/javascript" src="assets_front/js/script.js"></script>

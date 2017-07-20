@@ -14,13 +14,22 @@ header{
 	cursor: pointer;
 }
 
-a{
+.menu a{
 	text-decoration: none;
 	color: #fff;
 }
-a:hover{
+.menu a:hover{
 	color: #fff;
 }
+
+a{
+	cursor: pointer;
+}
+
+span.glyphicon{
+	cursor: pointer;
+}
+
 .container{
 	padding: 0px;
 	margin: 0px;

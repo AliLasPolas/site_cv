@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 18 Juillet 2017 à 17:00
+-- Généré le :  Jeu 20 Juillet 2017 à 16:03
 -- Version du serveur :  10.1.13-MariaDB
 -- Version de PHP :  5.6.23
 
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `competences` (
   `id_competences` int(11) NOT NULL,
-  `test` varchar(45) NOT NULL,
   `competence` varchar(45) NOT NULL,
+  `Type` varchar(255) NOT NULL DEFAULT 'competence',
   `niveau` int(11) NOT NULL,
   `utilisateur_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -38,14 +38,47 @@ CREATE TABLE `competences` (
 -- Contenu de la table `competences`
 --
 
-INSERT INTO `competences` (`id_competences`, `test`, `competence`, `niveau`, `utilisateur_id`) VALUES
-(211, 'test', 'mmmmm', 42, 1),
-(212, 'qsdfqsfd', 'mmmmm', 55, 1),
-(213, 'qsdfqf', 'mmmmm', 0, 1),
-(214, 'sdsd', 'mmmmm', 0, 1),
-(215, 'dddd', 'mmmmm', 0, 1),
-(216, 'ztqert', 'zqetqt', 0, 1),
-(217, 'sse', 'poqzdqzd', 0, 1);
+INSERT INTO `competences` (`id_competences`, `competence`, `Type`, `niveau`, `utilisateur_id`) VALUES
+(219, 'HTML/CSS', 'Competence', 70, 1),
+(228, 'jQuery', 'Competence', 70, 1),
+(230, 'Angular 2+', 'Competence', 35, 1),
+(231, 'WordPress', 'Front', 30, 1),
+(232, 'Ajax', 'Back', 55, 1),
+(233, 'PHP 7', 'Back', 75, 1),
+(234, 'Algorithmes', 'Autre', 50, 1),
+(235, 'C/C++', 'Autre', 40, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id_contact` int(11) NOT NULL,
+  `pseudo_contact` varchar(255) NOT NULL,
+  `email_contact` varchar(255) NOT NULL,
+  `telephone_contact` varchar(255) NOT NULL,
+  `sujet_contact` varchar(255) NOT NULL,
+  `texte_contact` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `contact`
+--
+
+INSERT INTO `contact` (`id_contact`, `pseudo_contact`, `email_contact`, `telephone_contact`, `sujet_contact`, `texte_contact`) VALUES
+(3, 'rtegrzfe', 'ali.nizamuddin@lepoles.com', '069539935', 'Démission', 'grngdgrsdgrss'),
+(4, 'mdnR', 'ali.nizamuddin@lepoles.com', '069539935', 'Démission', 'Je veux m''en aller de chez lePoles'),
+(5, 'spam', 'stevy.makouezi@lepoles.com', '0695399935', 'spam', 'Spamspamspamsaps'),
+(6, 'Ali', 'ali.nizamuddin@lepoles.com', '0695399935', 'Démission', 'ujgyfhtgrzqzdqzdqzdqzdqzdqzdqzdqzdqzd'),
+(7, 'Ali', 'ali.nizamuddin@lepoles.com', '0695399935', 'Démission', 'grzqzdqzdqzdqzdqzdqzdqzdqzdqzd'),
+(8, 'Ali', 'ali.nizamuddin@lepoles.com', '0695399935', 'Démission', 'grzqzdqzdqzdqzdqzdqzdqzdqzdqzdee'),
+(9, 'Ali', 'ali.nizamuddin@lepoles.com', '0695399935', 'Démission', 'grzqzdqzdqzdqzdqzdqzdqzdqzdqzdee'),
+(10, 'Ali', 'ali.nizamuddin@lepoles.com', '0695399935', 'Démission', 'khj,hfgtdfrsdfjhgfdsqfshjgfdsqfshjgdf'),
+(11, 'Ali', 'ali.nizamuddin@lepoles.com', '0695399935', 'Démission', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'),
+(12, 'Ali', 'ali.nizamuddin@lepoles.com', '0695399935', 'Démission', '123456789123456789123456789123'),
+(13, 'rtegrzfe', 'ali.nizamuddin@lepoles.com', '0695399935', 'Démission', 'qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq');
 
 -- --------------------------------------------------------
 
@@ -67,8 +100,8 @@ CREATE TABLE `experiences` (
 --
 
 INSERT INTO `experiences` (`id_experiences`, `titre_e`, `sous_titre_e`, `dates_e`, `description_e`, `utilisateur_id`) VALUES
-(1, 'Développeur web', 'Apprenantas WebForce3', '09/01/2017', 'Apprenant et développeur web junior au PoleS/Webforce3', 1),
-(2, 'Réceptionniste ', 'Réceptionniste de nuit', '21/11/2016 au 16/03/2017', 'Accueil des retardataires, préparation du petit déjeuner.', 1);
+(1, 'Réceptionniste ', 'Réception de nuit', '09/03/2017', 'Accueil des clients, préparation du buffet.', 1),
+(2, 'Développeur web', 'Développement et intégration Web', '17/11/2017', 'Développeur web junior chez LePoleS ', 1);
 
 -- --------------------------------------------------------
 
@@ -90,7 +123,8 @@ CREATE TABLE `formations` (
 --
 
 INSERT INTO `formations` (`id_formations`, `titre_f`, `sous_titre_f`, `dates_f`, `description_f`, `utilisateur_id`) VALUES
-(27, 'titre', 'soustitre', 'date', 'description', 1);
+(28, 'Lycée Général', 'Série Scientifique', '07/07/2014', 'Option ISN', 1),
+(29, 'Webforce3', 'Certification Intégrateur/Développeur Web', '20/06/2017', 'Méthodes et langages du web (Front-End et Back-End)', 1);
 
 -- --------------------------------------------------------
 
@@ -134,7 +168,7 @@ CREATE TABLE `loisirs` (
 --
 
 INSERT INTO `loisirs` (`id_loisirs`, `loisir`, `utilisateur_id`) VALUES
-(1, 'Lecture', 1),
+(1, 'Pokemon', 1),
 (2, 'Re-lecture de lectures précédentes', 1),
 (3, 'Lectures simultanées', 1),
 (4, 'Analyses de lectures', 1),
@@ -201,9 +235,7 @@ CREATE TABLE `titres_cv` (
 --
 
 INSERT INTO `titres_cv` (`id_titres_cv`, `titre_cv`, `accroche`, `logo`, `utilisateur_id`) VALUES
-(1, 'Développeur web full-stack', 'Intégrateur et Développeur web en recherche de stage', 'reseau_internet_monidal.jpg', 1),
-(2, 'Développeur web no-stack', 'Sans-emploi en recherche de rien du tout', 'que_dalle.jpg', 1),
-(3, 'Développeur web half-stack', 'Inteur et Déveur web en recherche de stg', 'photo_de_pc.jpg', 1);
+(1, 'Développeur web full-stack', 'Intégrateur et Développeur web en recherche de stage', 'reseau_internet_monidal.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -246,6 +278,12 @@ INSERT INTO `utilisateurs` (`statut`, `prenom`, `nom`, `email`, `telephone`, `md
 --
 ALTER TABLE `competences`
   ADD PRIMARY KEY (`id_competences`);
+
+--
+-- Index pour la table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id_contact`);
 
 --
 -- Index pour la table `experiences`
@@ -297,7 +335,12 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `competences`
 --
 ALTER TABLE `competences`
-  MODIFY `id_competences` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
+  MODIFY `id_competences` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=236;
+--
+-- AUTO_INCREMENT pour la table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT pour la table `experiences`
 --
@@ -307,7 +350,7 @@ ALTER TABLE `experiences`
 -- AUTO_INCREMENT pour la table `formations`
 --
 ALTER TABLE `formations`
-  MODIFY `id_formations` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_formations` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT pour la table `intertitres`
 --

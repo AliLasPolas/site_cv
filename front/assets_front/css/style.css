@@ -11,7 +11,8 @@ body{
 	position: fixed;
 	height: 100vh;
 	width: 100vw;
-	/*transition: 2s;*/
+	transition: 0.2s;
+	background-position: center;
 }
 
 p{
@@ -111,7 +112,7 @@ main {
 	height: calc(99vh - 50px);
 	position: relative;
 	}
-	.content{
+	.accueil{
 		position: absolute;
 		top: 35%;
 		text-align: center;
@@ -127,4 +128,12 @@ footer{
 	height: 100vh;
 	width: 100vw;
 	position: fixed;
+}
+
+.content{
+	height: 100%;
+}
+
+h1{
+	text-align: center;
 }

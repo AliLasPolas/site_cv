@@ -1,7 +1,7 @@
 <?php 
 
 $hote='localhost'; // Le chelin vers le serveur
-$bdd='site_cv_ali'; // Nom de la BDD
+$bdd='alinizamuddin_bd'; // Nom de la BDD
 $utilisateur='root'; // Le nom d'utilisateur pour se connecter
 $passe=''; // Mot de passe de l'utilisateur
 
@@ -31,4 +31,7 @@ function admin(){ // Cette fonction m'indique si le membre est admin
 	}
 	return false;
 }
+
+
+
 ?>

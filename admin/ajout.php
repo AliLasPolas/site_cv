@@ -1,6 +1,12 @@
 <?php require 'include/connexion.php'; ?>
 <?php 
 
+// var_dump($_POST);
+
+foreach ($_POST['valeurs'] as $key => $value) {
+	$_POST['valeurs'][$key] = addslashes($_POST['valeurs'][$key]);
+}
+
 // Insertion POST. On utilise DESCRIBE pour récupérer les champs nécéssaires a l'insertion, puis on utilise les valeurs envoyées en AJAX via $_POST 
 if ($_POST) {
 	if ($_POST['table'] != 'utilisateurs') { // On évite de se faire pirater

@@ -1,13 +1,13 @@
 $(function(){
 
 	let scroll = true;
-	let tableau_pages = ['accueil.html', 'competences.html', 'experiences.html', 'realisations.html', 'contact.html' ]
+	let tableau_pages = ['accueil.php', 'competences.php', 'experiences.php', 'realisations.php', 'contact.php' ]
 	let index_tableau = 0;
 
 	function suivant(e){
 		console.log('suivant');
 
-		e.preventDefault();
+		// e.preventDefault();
 		if (scroll) {
 			console.log(index_tableau);
 			if (index_tableau == tableau_pages.length-1) {
@@ -33,7 +33,17 @@ $(function(){
 					    $('main').animate({
 							opacity:"1",
 						}, 500);
-
+					    if (tableau_pages[index_tableau] == 'competences.php') {
+							console.log('animation barres');
+							$('.progress-bar-vertical>.progress-bar').css('top', '+=100%');
+							$('.progress-bar-vertical>.progress-bar').animate({
+								top: '-=100%'
+							},1500);
+							$('.progress-bar-horizontal>.progress-bar').css('right', '+=100%');
+							$('.progress-bar-horizontal>.progress-bar').animate({
+								right: '-=100%'
+							},1500);
+						}
 					});
 				});
 			}
@@ -42,7 +52,7 @@ $(function(){
 
 	function precedent(e){
 		console.log('precedent');
-		e.preventDefault();
+		// e.preventDefault();
 		if (scroll) {	
 			console.log(index_tableau);
 			if (index_tableau == 0) {
@@ -67,7 +77,17 @@ $(function(){
 					    $('main').animate({
 							opacity:"1",
 						}, 500);
-
+						if (tableau_pages[index_tableau] == 'competences.php') {
+							console.log('animation barres');
+							$('.progress-bar-vertical>.progress-bar').css('top', '+=100%');
+							$('.progress-bar-vertical>.progress-bar').animate({
+								top: '-=100%'
+							},1500);
+							$('.progress-bar-horizontal>.progress-bar').css('right', '+=100%');
+							$('.progress-bar-horizontal>.progress-bar').animate({
+								right: '-=100%'
+							},1500);
+						}
 					});
 				});
 			}
@@ -134,6 +154,17 @@ $(function(){
 	    }
 	});
 
+	$(document).on('keydown', function(e){
+
+		if (e.which == 38) {
+			console.log('up');
+			precedent();
+		}
+		else if (e.which == 40) {
+			console.log('down');
+			suivant();
+		}
+	});		
 	$(document).on("click", '.scroll_down', suivant);
 	$(document).on("click", '.scroll_up', precedent);
 	$(document).on("click", '.menu', defilementMenu);

@@ -1,7 +1,9 @@
 <?php require 'include/connexion.php'; ?>
 
 <?php 
-
+foreach ($_POST as $key => $value) {
+	$_POST[$key] = addslashes($_POST[$key]);
+}
 if ($_POST) {
 
 	if ($_POST['table'] !='utilisateurs') {//Histoire de pas avoir des admins qui apparaissent sur le site comme par magie
