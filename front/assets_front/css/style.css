@@ -1,9 +1,10 @@
 body{
 	color: #dddddd;
 	background-color: rgba(40,40,48,1);
-	background-image: url(../img/bg06.jpg);
+	/*background-image: url(../img/bg06.jpg);*/
+	background-size: auto 100vh;
 	font-family: 'Playfair Display', serif;
-	/*transition: 1s;*/
+	/*transition: 2s;*/
 }
 
 
@@ -11,14 +12,17 @@ body{
 	position: fixed;
 	height: 100vh;
 	width: 100vw;
-	transition: 0.2s;
-	background-position: center;
+	transition: 2s;
+	/*background-position: center;*/
+}
+.contenant:hover{
+	/*transition: 2s;*/
 }
 
 p{
 	cursor: pointer;
 	position: fixed;
-	font-size: 18px;
+	font-size: 1.2em;
 	font-weight: lighter;
 }
 
@@ -54,7 +58,7 @@ a:hover{
 	height: 7%;
     vertical-align: middle;
 	text-align: right;
-	font-size: 22px;
+	font-size: 1.2em;
 	font-weight: lighter;
 	cursor: pointer;
 }
@@ -94,7 +98,7 @@ a:hover{
     vertical-align: middle;
 	width: 100%;
 	text-align: center;
-	font-size: 22px;
+	font-size: 1.2em;
 	/*font-style: italic;*/
 	font-weight: lighter;
 	cursor: pointer;

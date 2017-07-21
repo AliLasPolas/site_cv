@@ -11,6 +11,7 @@
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?= $index['titre_cv']?></title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets_front/css/style.css">
@@ -57,11 +58,11 @@
 			</div>
 		</main>
 		<footer class="row">
-			<div class="col-xs-3 col-md-1 scroll_down">
-				<p> descendre </p>
+			<div class="hidden-xs col-xs-3 col-md-1 scroll_down">
+				<p> Descendre </p>
 			</div>
-			<div class="col-xs-3 col-md-1 scroll_up">
-				<p> remonter </p>
+			<div class="hidden-xs col-xs-3 col-md-1 scroll_up">
+				<p> Remonter </p>
 			</div>
 			<div class="col-xs-2 col-md-2 col-md-offset-3 col-xs-offset-0">
 				<p class="bas">	
@@ -69,7 +70,6 @@
 				</p>
 			</div>
 			<div class="col-xs-offset-1 col-xs-2 col-md-1 col-md-offset-3">
-				<p> A propos </p>
 			</div>
 			<div class="hidden-xs col-md-1 col-sm-1">
 				<p>Heure</p>
@@ -86,8 +86,26 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/mousewheel/3.1.13/jquery.mousewheel.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha256-0rguYS0qgS6L4qVzANq4kjxPLtvnp5nn2nB5G1lWRv4=" crossorigin="anonymous"></script>
-
 <script type="text/javascript" src="assets_front/js/defilement.js"></script>
 <script type="text/javascript" src="assets_front/js/script.js"></script>
+
+<script type="text/javascript">
+	/*Code Konami*/
+	//Haut, haut, bas, bas, gauche, droite, gauche, droite, B, A
+		var k = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
+		n = 0;
+		$(document).keydown(function (e) {
+		    if (e.keyCode === k[n++]) {
+		        if (n === k.length) {
+		            window.location.replace("seacat_scrt.php");
+		            n = 0;
+		            return false;
+		        }
+		    }
+		    else {
+		        n = 0;
+		    }
+		});
+</script>
 </body>
 </html>

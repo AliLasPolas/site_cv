@@ -1,2 +1,3 @@
 <?php 
-echo "test"; ?>
+header('Location:front/index.php');
+?>

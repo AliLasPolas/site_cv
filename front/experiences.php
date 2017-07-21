@@ -64,6 +64,15 @@
 		display: block;
 		transition: 1.5s;
 	}
+	.rond_mobile>span.rond{
+		height: 30px;
+		width: 30px;
+		border: 5px solid #2E4053;
+		border-radius: 100%;
+		background-color: white;
+		display: block;
+		transition: 1.5s;
+	}
 	span.rond:hover{
 		background-color: rgb(40,40,46);
 	}
@@ -78,7 +87,11 @@
 	}
 
 	h1{
-		margin-bottom: 35px;
+		margin-bottom: 3vh;
+	}
+
+	.mobile_row{
+		margin-bottom: 2.5vh;
 	}
 </style>
 
@@ -140,7 +153,7 @@
 		</div>
 	</div>
 	<?php foreach ($resultat as $result): ?>
-		<div class="row">
+		<div class="row mobile_row">
 			<div class="col-sm-1 col-xs-1 rond_mobile">
 				<span class="rond"></span>
 			</div>

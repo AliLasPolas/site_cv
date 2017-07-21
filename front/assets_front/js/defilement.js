@@ -170,9 +170,7 @@ $(function(){
 		traget = $(traget).text();
 		traget = traget.substr(0,1);
 		index_tableau = traget-1;
-		scroll = true;
-		suivant();
-		setTimeout(enroulementMenu(), 1000)
+		
 	});
 	$(document).on("click", '.scroll_down', suivant);
 	$(document).on("click", '.scroll_up', precedent);
