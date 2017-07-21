@@ -9,7 +9,7 @@
 	}
 	// print_r($experiences);
 
-	$connexion = $pdoCV->query("SELECT * FROM formations WHERE utilisateur_id = ".$_SESSION['membre']['utilisateur_id']." ");
+	$connexion = $pdoCV->query("SELECT * FROM formations WHERE utilisateur_id = 1 ");
 	$formations = $connexion->fetchAll();
 	for ($i=0; $i < count($formations); $i++) { 
 		$formations[$i]['table'] = 'formations';
@@ -33,9 +33,6 @@
 
 ?>
 <style type="text/css">
-
-
-
 	.contenu_exp{
 		height: 45vh;
 		/*background-color: rgba(192, 57, 43, 0.1);*/
@@ -60,7 +57,7 @@
 		width: 40px;
 		border: 5px solid #2E4053;
 		border-radius: 100%;
-		background-color: white;
+		background-color: rgb(40,40,46);
 		display: block;
 		transition: 1.5s;
 	}
@@ -69,9 +66,13 @@
 		width: 30px;
 		border: 5px solid #2E4053;
 		border-radius: 100%;
-		background-color: white;
 		display: block;
 		transition: 1.5s;
+		background-color: white;
+
+	}
+	span.rond_visible{
+		background-color: white;
 	}
 	span.rond:hover{
 		background-color: rgb(40,40,46);
@@ -79,6 +80,7 @@
 
 	.rond_mobile{
 		margin-bottom: 3%;
+
 	}
 
 	.titre_haut{
@@ -123,7 +125,7 @@
 				<div class="row barre_timeline">
 					<?php for ($i=0; $i < 12; $i++):?>
 						<div class="rond col-md-1">
-							<span class="rond" <?php if (isset($resultat[$i])): echo "id='".$resultat[$i]['table']."_".$resultat[$i][0]."'"; ?><?php endif ?> ></span>
+							<span class='rond <?php if (isset($resultat[$i])): echo " rond_visible' id='".$resultat[$i]['table']."_".$resultat[$i][0]; ?><?php endif ?> '></span>
 						</div>
 					<?php endfor ?>
 				</div>

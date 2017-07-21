@@ -13,5 +13,5 @@
 	<h1> <?= $index['prenom']?> <?= $index['nom']?> </h1>
 	<h2><?= $index['titre_cv']?></h2>
 	<h3><?= $index['accroche']?></h3>
-	<h4>Scroll bas pour continuer</h4>
+	<h4><i class="fa fa-caret-down" aria-hidden="true"></i></h4>
 </div>

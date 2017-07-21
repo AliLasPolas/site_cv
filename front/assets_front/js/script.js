@@ -4,7 +4,7 @@ $(function(){
 	$(document).on("mouseover", "li.nav-item", function(e){
 		let img = $(this).attr('id');
 		let chemin_image = 'url(assets_front/img/bg_'+img+'.jpg)';
-		// console.log(chemin_image);
+		// //console.log(chemin_image);
 		$('.contenant').css('background-image', chemin_image);
 	});
 
@@ -16,8 +16,8 @@ $(function(){
 			let index = table_id.indexOf("_");
 			let table = table_id.substr(0, index);
 			let id = table_id.substr(index + 1 );
-			console.log(table);
-			console.log(id);
+			//console.log(table);
+			//console.log(id);
 			$.ajax({
 				url: 'rest.php',
 				type: 'post',
@@ -28,7 +28,7 @@ $(function(){
 			}).
 			done(function(data){
 				data = JSON.parse(data);
-				console.log(data);
+				//console.log(data);
 				let texte_exp = `
 				<h2>`+data[1]+`</h2>
 				<h3>`+data[2]+`</h3>
@@ -85,9 +85,11 @@ $(function(){
 			}
 		});
 	});
-	$(document).on("click", "li.nav-item", function(e){
-		traget = e.target;
-		traget = $(traget).text();
-		traget = traget.substr(0,1);
-	});
+
+	setInterval(function(){ 
+	    var date = new Date();
+		date = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+		// console.log(date);
+		$('.heure').text(date);
+	}, 1000); 	
 });

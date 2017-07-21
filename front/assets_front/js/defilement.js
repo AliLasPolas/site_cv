@@ -5,12 +5,12 @@ $(function(){
 	let index_tableau = 0;
 
 	function suivant(e){
-		console.log('suivant');
+		//console.log('suivant');
 		// e.preventDefault();
 		if (scroll) {
-			console.log(index_tableau);
+			//console.log(index_tableau);
 			if (index_tableau == tableau_pages.length-1) {
-				console.log('Fin de page atteint');
+				//console.log('Fin de page atteint');
 				$('.bas').animate({
 					top: "-=50px",
 				}, 500).delay(800).animate({
@@ -19,10 +19,8 @@ $(function(){
 			}
 			
 			else{
-				index_tableau++;
-				$('main').animate({
-					opacity:"0",
-				}, 500, function(){
+				if (e == "no-charge") {
+					index_tableau++;
 					$.ajax({
 						url: tableau_pages[index_tableau],
 						type: 'post'
@@ -33,7 +31,7 @@ $(function(){
 							opacity:"1",
 						}, 500);
 					    if (tableau_pages[index_tableau] == 'competences.php') {
-							console.log('animation barres');
+							//console.log('animation barres');
 							$('.progress-bar-vertical>.progress-bar').css('top', '+=100%');
 							$('.progress-bar-vertical>.progress-bar').animate({
 								top: '-=100%'
@@ -44,18 +42,46 @@ $(function(){
 							},1500);
 						}
 					});
-				});
+				}
+				else{
+					index_tableau++;
+					$('main').animate({
+						opacity:"0",
+					}, 500, function(){
+						$.ajax({
+							url: tableau_pages[index_tableau],
+							type: 'post'
+						}).
+						done(function(data){
+							$('main').html(data);
+						    $('main').animate({
+								opacity:"1",
+							}, 500);
+						    if (tableau_pages[index_tableau] == 'competences.php') {
+								//console.log('animation barres');
+								$('.progress-bar-vertical>.progress-bar').css('top', '+=100%');
+								$('.progress-bar-vertical>.progress-bar').animate({
+									top: '-=100%'
+								},1500);
+								$('.progress-bar-horizontal>.progress-bar').css('right', '+=100%');
+								$('.progress-bar-horizontal>.progress-bar').animate({
+									right: '-=100%'
+								},1500);
+							}
+						});
+					});
+				}
 			}
 		}
 	}
 
 	function precedent(e){
-		console.log('precedent');
+		//console.log('precedent');
 		// e.preventDefault();
 		if (scroll) {	
-			console.log(index_tableau);
+			//console.log(index_tableau);
 			if (index_tableau == 0) {
-				console.log('Haut de page atteint');
+				//console.log('Haut de page atteint');
 				$('.haut').animate({
 					bottom: "-=50px",
 				}, 500).delay(800).animate({
@@ -77,7 +103,7 @@ $(function(){
 							opacity:"1",
 						}, 500);
 						if (tableau_pages[index_tableau] == 'competences.php') {
-							console.log('animation barres');
+							//console.log('animation barres');
 							$('.progress-bar-vertical>.progress-bar').css('top', '+=100%');
 							$('.progress-bar-vertical>.progress-bar').animate({
 								top: '-=100%'
@@ -95,14 +121,14 @@ $(function(){
 	}
 
 	function defilementMenu(e){
-		console.log('derouement');
+		//console.log('derouement');
 		$('.admin').hide();
 		$('.fermer').hide();
 		for (let i = 10; i >= 0; i--) {
 			$('ul.nav').animate({
 				left:(-(i*i)) +"vw",
 			}, 30 );
-			console.log(i*i);
+			//console.log(i*i);
 		}
 
 		for (let i = 0; i <= 10; i++) {
@@ -112,7 +138,7 @@ $(function(){
 				$('.contenu').fadeOut('slow');
 				$('.fermer').fadeIn('slow');
 				$('.fermer').removeClass('hidden');
-				console.log('déroulement');
+				//console.log('déroulement');
 			});
 		}
 		scroll = false;
@@ -120,12 +146,12 @@ $(function(){
 	}
 
 	function enroulementMenu(e){
-		console.log('enroulement');
+		//console.log('enroulement');
 		for (let i = 0; i <= 10; i++) {
 			$('ul.nav').animate({
 				left:(-(i*i)) +"vw",
 			}, 30 );
-			console.log('ul');
+			//console.log('ul');
 		}
 
 		for (let i = 10; i >= 0; i--) {
@@ -134,7 +160,7 @@ $(function(){
 			}, 30, function(e){
 				$('.contenu').show();
 				$('.fermer').addClass('hidden');
-				console.log('renroulement');
+				//console.log('renroulement');
 			});
 		}
 		$('.contenant').css('background-image', '');
@@ -156,22 +182,39 @@ $(function(){
 	$(document).on('keydown', function(e){
 
 		if (e.which == 38) {
-			console.log('up');
+			//console.log('up');
 			precedent();
 		}
 		else if (e.which == 40) {
-			console.log('down');
+			//console.log('down');
 			suivant();
 		}
 	});
 
-	$(document).on("click", "li.nav-item", function(e){
+	$(document).on("click", ".nav-item", function(e){
+		// //console.log('cliqke');
 		let traget = e.target;
 		traget = $(traget).text();
 		traget = traget.substr(0,1);
 		index_tableau = traget-1;
+		scroll = true;
+		suivant('no-charge');
+		enroulementMenu();
 		
 	});
+
+	$(document).swipe( {
+	//Generic swipe handler for all directions
+		swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+			if (direction == 'up') {
+				suivant();
+			}
+			else if (direction == 'down') {
+				precedent();
+			}
+		}
+	});
+
 	$(document).on("click", '.scroll_down', suivant);
 	$(document).on("click", '.scroll_up', precedent);
 	$(document).on("click", '.menu', defilementMenu);

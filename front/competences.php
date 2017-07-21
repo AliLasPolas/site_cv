@@ -29,7 +29,7 @@
 	  height: 20px;
 	  display: flex;
 	  align-items: flex-end;
-	  margin-top: 30px;
+	  margin-top: 20px;
 	  /*float: left;*/
 	}
 
