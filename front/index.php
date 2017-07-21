@@ -25,18 +25,10 @@
  		<li class="fermer">
  			<p>Fermer</p>
  		</li>
-		<li class="nav-item" id="competences">
-			1 - Compétences
-		</li>
-		<li class="nav-item" id="experiences">
-			2 - Formations / Expériences
-		</li>
-		<li class="nav-item" id="realisations">
-			3 - Réalisations
-		</li>
-		<li class="nav-item" id="contact">
-			4 - Contact
-		</li>
+		<li class="nav-item" id="competences">1 - Compétences</li>
+		<li class="nav-item" id="experiences">2 - Formations / Expériences</li>
+		<li class="nav-item" id="realisations">3 - Réalisations</li>
+		<li class="nav-item" id="contact">4 - Contact</li>
 	</ul>
 
 	<div class="container-fluid contenu">

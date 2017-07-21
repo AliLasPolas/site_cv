@@ -4,7 +4,7 @@ $(function(){
 	$(document).on("mouseover", "li.nav-item", function(e){
 		let img = $(this).attr('id');
 		let chemin_image = 'url(assets_front/img/bg_'+img+'.jpg)';
-		console.log(chemin_image);
+		// console.log(chemin_image);
 		$('.contenant').css('background-image', chemin_image);
 	});
 
@@ -85,5 +85,9 @@ $(function(){
 			}
 		});
 	});
-	$('.nav-item')
+	$(document).on("click", "li.nav-item", function(e){
+		traget = e.target;
+		traget = $(traget).text();
+		traget = traget.substr(0,1);
+	});
 });
