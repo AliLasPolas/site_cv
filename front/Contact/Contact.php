@@ -1,4 +1,4 @@
-<?php require_once'../admin/include/connexion.php'; ?>
+<?php require_once'../../admin/include/connexion.php'; ?>
 <?php 
 
 	$connexion = $pdoCV->query("SELECT * FROM competences WHERE utilisateur_id = 1 ");
@@ -52,7 +52,7 @@
 				</div>
 				<div class="form-group">
 					<label for="texte">Contenu du message</label>
-					<textarea required class="form-control texte_contact" id="texte" rows="1"></textarea>
+					<textarea required class="form-control texte_contact" id="texte" rows="1">Contenu du message</textarea>
 				</div>
 
 				<button type="submit" class="btn btn-primary">Envoyer</button>
@@ -70,15 +70,15 @@
 		<div class="row">			
 			<div class="col-xs-4 col-md-2 col-md-offset-2">
 				<a href="https://www.linkedin.com/in/mdnali/">
-					<img class="center-block" src="assets_front/img/linkedin.png" title="linkedIn mdnR">
+					<img class="center-block" src="../assets_front/img/linkedin.png" title="linkedIn mdnR">
 				</a>
 			</div>
 			<div class="col-xs-4 col-md-2 col-md-offset-1">
-				<img class="center-block" src="assets_front/img/quantum.png" title="A venir...">
+				<img class="center-block" src="../assets_front/img/quantum.png" title="A venir...">
 			</div>
 			<div class="col-xs-4 col-md-2 col-md-offset-1">
 				<a href="https://github.com/AliLasPolas">
-					<img class="center-block" src="assets_front/img/github.png" title="linkedIn AliLasPolas">
+					<img class="center-block" src="../assets_front/img/github.png" title="linkedIn AliLasPolas">
 				</a>
 			</div>
 		</div>

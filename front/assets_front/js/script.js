@@ -3,7 +3,7 @@ $(function(){
 	/*Page compétences, remplissage progressif des competences*/
 	$(document).on("mouseover", "li.nav-item", function(e){
 		let img = $(this).attr('id');
-		let chemin_image = 'url(assets_front/img/bg_'+img+'.jpg)';
+		let chemin_image = 'url(../assets_front/img/bg_'+img+'.jpg)';
 		// //console.log(chemin_image);
 		$('.contenant').css('background-image', chemin_image);
 	});
@@ -19,7 +19,7 @@ $(function(){
 			//console.log(table);
 			//console.log(id);
 			$.ajax({
-				url: 'rest.php',
+				url: '../rest.php',
 				type: 'post',
 				data: {
 					table: table,
@@ -66,7 +66,7 @@ $(function(){
 		let texte_contact 		= $('.texte_contact').val();
 
 		$.ajax({
-			url: 'rest.php',
+			url: '../rest.php',
 			type: 'post',
 			data: {
 				pseudo_contact: pseudo_contact,
@@ -88,8 +88,26 @@ $(function(){
 
 	setInterval(function(){ 
 	    var date = new Date();
-		date = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+	    heure = date.getHours();
+	    minute = date.getMinutes();
+	    seconde = date.getSeconds();
+	    heure = String(heure);
+	    minute = String(minute);
+	    seconde = String(seconde);
+
+	    if (heure.length < 2) {
+	    	heure = '0' + heure;
+	    }
+	    if (minute.length < 2) {
+	    	minute = '0' + minute;
+	    }
+	    if (seconde.length < 2) {
+	    	seconde = '0' + seconde;
+	    }
+
+		date = heure + ':' + minute + ':' + seconde;
 		// console.log(date);
+
 		$('.heure').text(date);
 	}, 1000); 	
 });

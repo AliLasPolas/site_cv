@@ -1,8 +1,10 @@
 $(function(){
-
 	let scroll = true;
-	let tableau_pages = ['accueil.php', 'competences.php', 'experiences.php', 'realisations.php', 'contact.php' ]
-	let index_tableau = 0;
+	let tableau_pages = ['Accueil', 'Competences', 'Experiences', 'Realisations', 'Contact' ]
+	let index_tableau = -1;
+	suivant()
+	window.history.pushState("", 'Accueil', '/site_cv/front/Accueil/');
+
 
 	function suivant(e){
 		//console.log('suivant');
@@ -15,6 +17,7 @@ $(function(){
 					top: "-=50px",
 				}, 500).delay(800).animate({
 					top: "+=50px",
+					opacity: "0"
 				});
 			}
 			
@@ -22,7 +25,7 @@ $(function(){
 				if (e == "no-charge") {
 					index_tableau++;
 					$.ajax({
-						url: tableau_pages[index_tableau],
+						url: '../' + tableau_pages[index_tableau] + '/' + tableau_pages[index_tableau] + '.php',
 						type: 'post'
 					}).
 					done(function(data){
@@ -30,7 +33,7 @@ $(function(){
 					    $('main').animate({
 							opacity:"1",
 						}, 500);
-					    if (tableau_pages[index_tableau] == 'competences.php') {
+					    if (tableau_pages[index_tableau] == 'Competences') {
 							//console.log('animation barres');
 							$('.progress-bar-vertical>.progress-bar').css('top', '+=100%');
 							$('.progress-bar-vertical>.progress-bar').animate({
@@ -49,7 +52,7 @@ $(function(){
 						opacity:"0",
 					}, 500, function(){
 						$.ajax({
-							url: tableau_pages[index_tableau],
+							url: '../' + tableau_pages[index_tableau] + '/' + tableau_pages[index_tableau] + '.php',
 							type: 'post'
 						}).
 						done(function(data){
@@ -57,7 +60,7 @@ $(function(){
 						    $('main').animate({
 								opacity:"1",
 							}, 500);
-						    if (tableau_pages[index_tableau] == 'competences.php') {
+						    if (tableau_pages[index_tableau] == 'Competences') {
 								//console.log('animation barres');
 								$('.progress-bar-vertical>.progress-bar').css('top', '+=100%');
 								$('.progress-bar-vertical>.progress-bar').animate({
@@ -70,6 +73,8 @@ $(function(){
 							}
 						});
 					});
+					console.log('test');
+					window.history.pushState("", tableau_pages[index_tableau], '/site_cv/front/'+tableau_pages[index_tableau]+"/");
 				}
 			}
 		}
@@ -82,10 +87,13 @@ $(function(){
 			//console.log(index_tableau);
 			if (index_tableau == 0) {
 				//console.log('Haut de page atteint');
+				console.log('lin');
+				$('.haut').stop();
 				$('.haut').animate({
 					bottom: "-=50px",
 				}, 500).delay(800).animate({
 					bottom: "+=50px",
+					opacity: "0"
 				});
 			}
 			else{
@@ -94,7 +102,7 @@ $(function(){
 					opacity:"0",
 				}, 500, function(){
 					$.ajax({
-						url: tableau_pages[index_tableau],
+						url: '../' + tableau_pages[index_tableau] + '/' + tableau_pages[index_tableau] + '.php',
 						type: 'post'
 					}).
 					done(function(data){
@@ -102,7 +110,7 @@ $(function(){
 					    $('main').animate({
 							opacity:"1",
 						}, 500);
-						if (tableau_pages[index_tableau] == 'competences.php') {
+						if (tableau_pages[index_tableau] == 'Competences') {
 							//console.log('animation barres');
 							$('.progress-bar-vertical>.progress-bar').css('top', '+=100%');
 							$('.progress-bar-vertical>.progress-bar').animate({
@@ -115,8 +123,8 @@ $(function(){
 						}
 					});
 				});
+				window.history.pushState("", tableau_pages[index_tableau], '/site_cv/front/'+tableau_pages[index_tableau]+"/");
 			}
-
 		}
 	}
 
@@ -169,14 +177,23 @@ $(function(){
 		return;		
 	}
 
+	$(document).on('mousewheel', function(e){
+		// console.log(e);
+		if (e.deltaY < 0) {
+			suivant();
+			scroll = false;
+			setTimeout(function(){
+				scroll = true;
+			}, 1500);
 
-	$(document).bind('mousewheel', '.main', function(e) {
-	    if(e.originalEvent.wheelDelta / 120 > 0) {
-	        precedent(e);
-	    } 
-	    else {
-	        suivant(e);
-	    }
+		}
+		else if(e.deltaY > 0){
+			precedent();
+			scroll = false;
+			setTimeout(function(){
+				scroll = true;
+			}, 1500);
+		}
 	});
 
 	$(document).on('keydown', function(e){

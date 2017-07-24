@@ -52,12 +52,6 @@
 			</div>
 		</header>
 		<main class="row">
-			<div class="col-md-offset-3 col-md-6 col-xs-12 col-sm-12 accueil content">
-				<h1> <?= $index['prenom']?> <?= $index['nom']?> </h1>
-				<h2><?= $index['titre_cv']?></h2>
-				<h3><?= $index['accroche']?></h3>
-				<h4><i class="fa fa-caret-down" aria-hidden="true"></i></h4>
-			</div>
 		</main>
 		<footer class="row">
 			<div class="hidden-xs col-xs-3 col-md-1 scroll_down">
@@ -66,15 +60,15 @@
 			<div class="hidden-xs col-xs-3 col-md-1 scroll_up">
 				<p> Remonter </p>
 			</div>
-			<div class="col-xs-5 col-xs-offset-3 col-md-2 col-md-offset-3">
+			<div class="col-xs-5 col-xs-offset-3 col-md-3z col-md-offset-2">
 				<p class="bas">	
-					Bas de page atteint
+					Bas de page, mais il reste un petit secret a découvrir.
 				</p>
 				
 			</div>
 			<div class="col-xs-offset-1 col-xs-2 col-md-1 col-md-offset-3">
 			</div>
-			<div class="hidden-xs col-md-1 col-sm-1">
+			<div class="hidden-xs col-md-1 col-md-offset-7 col-sm-1">
 				<p class="heure">00:00:00</p>
 			</div>
 		</footer>
@@ -102,7 +96,7 @@
 		$(document).keydown(function (e) {
 		    if (e.keyCode === k[n++]) {
 		        if (n === k.length) {
-		            window.location.replace("seacat_scrt.php");
+		            window.location.replace("/site_cv/front/seacat_scrt.php");
 		            n = 0;
 		            return false;
 		        }

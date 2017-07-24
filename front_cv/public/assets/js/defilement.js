@@ -1,7 +1,7 @@
 $(function(){
 
 	let scroll = true;
-	let tableau_pages = ['default.php', 'competences.php', 'experiences.php', 'realisations.php', 'contact.php' ]
+	let tableau_pages = ['default', 'competences', 'experiences', 'realisations', 'contact' ]
 	let index_tableau = 0;
 
 	function suivant(e){
@@ -25,7 +25,7 @@ $(function(){
 					opacity:"0",
 				}, 500, function(){
 					$.ajax({
-						url: '/site_cv/front_cv/app/Views/default/'+tableau_pages[index_tableau],
+						url: '/site_cv/front_cv/app/Views/default/'+tableau_pages[index_tableau]+'.php',
 						type: 'post'
 					}).
 					done(function(data){
@@ -36,6 +36,7 @@ $(function(){
 
 					});
 				});
+				console.log('test');		
 			}
 		}
 	}
@@ -59,7 +60,7 @@ $(function(){
 					opacity:"0",
 				}, 500, function(){
 					$.ajax({
-						url: '/site_cv/front_cv/app/Views/default/'+tableau_pages[index_tableau],
+						url: '/site_cv/front_cv/app/Views/default/'+tableau_pages[index_tableau]+'.php',
 						type: 'post'
 					}).
 					done(function(data){
@@ -70,6 +71,8 @@ $(function(){
 
 					});
 				});
+				console.log('test');		
+				
 			}
 
 		}

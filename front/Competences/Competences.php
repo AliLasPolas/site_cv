@@ -1,4 +1,4 @@
-<?php require_once'../admin/include/connexion.php'; ?>
+<?php require_once'../../admin/include/connexion.php'; ?>
 <?php 
 
 	$connexion = $pdoCV->query("SELECT * FROM competences WHERE utilisateur_id = 1 ");
