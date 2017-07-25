@@ -2,6 +2,8 @@
 <html lang="fr">
 <head>
 	<title>Blackjack</title>
+	<meta charset="utf-8">
+	
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
@@ -61,10 +63,23 @@
 		.checked{
 			color: green;
 		}
+		#audio-player{
+			position: fixed;
+			left: -2000px;
+
+			z-index: 2000;
+		}
 
 	</style>
 </head>
 <body>
+	<div class="music_player">
+		
+		<audio id="audio-player" controls autoplay loop>
+			<source src="assets_front/monochrome_clock.mp3" type="audio/mpeg">
+			<p>If you can read this, your browser does not support the audio element.</p>
+		</audio>
+	</div>
 	<div class="contenu container-fluid">
 		<div class="croupier">
 			<div class="row">
@@ -106,6 +121,9 @@
 				<p>Fini de tirer</p>
 				<br>
 				<i class="fa fa-stop-circle fa-4x"></i>
+			</div>
+			<div class="col-md-3 message">
+				<h3>bienvenido</h3>
 			</div>
 		</div>
 		<div class="joueur ">

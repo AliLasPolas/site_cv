@@ -1,5 +1,15 @@
 $(function(){
 
+	let audio = document.getElementById("audio-player");
+	audio.volume = 0.05;
+
+	let son_mise = new Audio('assets_front/mise.mp3');
+	let son_melange = new Audio('assets_front/melange.mp3');
+	let son_tire = new Audio('assets_front/tire.wav');
+	let son_victoire = new Audio('assets_front/victoire.mp3');
+	let son_defaite = new Audio('assets_front/defaite.mp3');
+
+
 	let table_libre_joueur = 
 	`		<div class="row">
 				<div class="col-md-1 libre carte_joueur"></div>
@@ -62,18 +72,29 @@ $(function(){
 	let main = 0;
 
 	function fin(e){
-		alert('Vous avez beaucoup joué au BlackJack.');
+		$('.message>h3').css('opacity', '0');
+		$('.message>h3').html('Vous avez beaucoup joué au BlackJack.');
 		if (argent > 1000) {
-			alert('Vous avez gagné trop d\'argent.');
-			alert('Le casino vous accuse de compter les cartes.');
-			alert('Les gros bras de la sécurité vous renvoient vers le site cv de Ali.');
-			window.location.replace("http://alinizamuddin.ma6tvacoder.org");
+			$('.message>h3').html('Vous avez gagné trop d\'argent. <br> Le casino vous accuse de compter les cartes. <br> Les gros bras de la sécurité vous renvoient vers le site cv de Ali.');
+			$('.message>h3').animate({
+				opacity: "1"
+			}, 1000, function(e){
+				setTimeout(function(){ 
+					window.location.replace("http://alinizamuddin.ma6tvacoder.org");
+				}, 5000);
 
+			});
 		}
 		else{
-			alert('Vous avez trop perdu...');
-			alert('Vous allez etre redirigé vers sosjoueurs.org pour vous aider a lutter contre cette addiction.');
-			window.location.replace("http://sosjoueurs.org");
+			$('.message>h3').html('Vous avez trop perdu... <br> Vous allez etre redirigé vers sosjoueurs.org pour vous aider a lutter contre cette addiction.');
+			$('.message>h3').animate({
+				opacity: "1"
+			}, 1000, function(e){
+				setTimeout(function(){ 
+					window.location.replace("http://sosjoueurs.org");
+				}, 5000);
+
+			});
 		}
 	}
 
@@ -95,34 +116,38 @@ $(function(){
 		$('.main>span').text('0');
 		$('.mise>span').text('0');
 		$('.parties>span').text(parties);
-		$('.argent>span').text(parties);
+		$('.argent>span').text(argent);
 		$('.joueur').html(table_libre_joueur);
 		$('.croupier').html(table_libre_croupier);
+
 	}
 
 	function defaite(e){
-		alert('Vous avez perdu ...');
+		$('.message>h3').html('Vous avez perdu ...');
+		son_defaite.play();
 		argent -= mise;
 		$('.argent>span').text(argent);
 		finDuJeu();
 	}
 	function victoire(e){
-		alert('Vous avez gagné !');
+		$('.message>h3').html('Vous avez gagné !');
+		son_victoire.play();
 		argent += mise;
 		$('.argent>span').text(argent);
 		finDuJeu();
 	}
 	function egalite(e){
-		alert('Égalite.');
+		$('.message>h3').html('Égalite.');
 		$('.argent>span').text(argent);
 		finDuJeu();
 	}
 
 	function tirer_carte(e){
+
+		$('.message>h3').html('Tirez donc vos cartes. Comptage interdit.');		
 		let tire = Math.floor(Math.random() * deck_actuel.length);
 		let carte = deck_actuel[tire];
 		// console.log('tire' + tire);
-		// alert('Vous carte est un(e) ' + carte);
 		let valeur = carte.substr(0, carte.indexOf('.'));
 		carte = carte.replace('.','');
 		console.log(carte);
@@ -146,7 +171,7 @@ $(function(){
 		deck_actuel.splice(tire, 1);
 		main++;
 
-
+		son_tire.play();
 		$('.carte_joueur.pris>img').last().animate({
 			top: '+=2000px'
 		}, 500, function(){
@@ -177,6 +202,7 @@ $(function(){
 		if (valeur_croupier == 'A') {
 			if (score_croupier < 11 ) {
 				valeur_croupier = 11;
+				ace = true;
 			}
 			else{
 				valeur_croupier = 1;
@@ -203,6 +229,7 @@ $(function(){
 			$('.score_croupier>span').html(score_croupier);
 		}
 
+		son_tire.play();
 		$('.carte_croupier.pris>img').first().animate({
 			bottom: '+=500px'
 		}, 500, function(){
@@ -232,16 +259,17 @@ $(function(){
 			score_croupier = 0;
 		}
 		else{
-			if (blackjack_joueur) {
-				alert('BlackJack !');
+			if (blackjack_joueur == true) {
+				$('.message>h3').html('BlackJack !');
 				score = 22;
 			}
-			if (blackjack_croupier) {
-				alert('BlackJack !');
-				alert('Pour le croupier !');
+			if (blackjack_croupier == true) {
+				$('.message>h3').html('Blackjack pour le croupier !');
 
 				score_croupier = 22;
 			}
+			console.log('score '+score);
+			console.log('score c'+score_croupier);
 			if (score > score_croupier) {
 				victoire();
 			}
@@ -256,16 +284,28 @@ $(function(){
 
 	$(document).on("click", '.new', function(e){
 		if (etat_partie = 'debut') {
-			if (parties > 8) {
+			if (parties > 8 || argent > 2500 || argent < 1) {
 				fin();
 			}
 			else{
 				parties++;
+				son_mise.play();
 				mise = prompt('Entrez votre mise');
+				mise = parseInt(mise);
+				if (isNaN(mise) ) {
+					$('.message>h3').html('Mise invalide');
+					mise = 0;
+				}
+				else if (mise > argent){
+					$('.message>h3').html('Vous n\'avez pas assez de thunes, votre mise est réduite en conséquence. ');
+					mise = argent;
+				}
 				$('.mise>span').html(mise);
 				etat_partie = 'tour_joueur';
+				son_melange.play();
 				tirer_carte();
 				$('.new').children().hide();
+
 			}
 		}
 	});
@@ -273,8 +313,6 @@ $(function(){
 	$(document).on("click", '.tire', function(e){
 		if (etat_partie == 'tour_joueur') {
 			tour_croupier = true;
-			buche = false;
-			ace = false;
 			deck_actuel = deck_de_base;
 			tirer_carte(e);
 		}
@@ -321,12 +359,13 @@ $(function(){
 				if (score == 21 && buche && ace) {
 					blackjack_joueur = true;
 				}
+				$('.message>h3').html('Vous pouvez changer la valeur de vos as si vous en avez.');	
 				etat_partie = 'tour_croupier';
 				tour_croupier = true;
 				buche = false;
 				ace = false;
 				deck_actuel = deck_de_base;
-				$('.stop>p').text('Fini de vérifier ses AS');
+				$('.stop>p').text('Fini de vérifier ses AS ?');
 				tire_croupier(e);
 			}
 		}
