@@ -96,7 +96,7 @@
 		$(document).keydown(function (e) {
 		    if (e.keyCode === k[n++]) {
 		        if (n === k.length) {
-		            window.location.replace("/site_cv/front/seacat_scrt.php");
+		            window.location.replace("/site_cv/front/seacat_scrt.html");
 		            n = 0;
 		            return false;
 		        }

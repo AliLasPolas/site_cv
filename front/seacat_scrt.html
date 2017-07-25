@@ -3,11 +3,16 @@
 <head>
 	<title>Blackjack</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 	<style type="text/css">
 
 		body{
 			background-image: url(assets_front/img/secret.jpg);
+			color: #fff;
+		}
+		.rouge{
+			color: #f00;
 		}
 		.contenu{
 			background-color: rgba(40,40,48,0.9);
@@ -24,6 +29,7 @@
 			width: 100vw;
 			margin: 0;
 			padding: 0;
+			overflow: hidden;
 		}
 
 		.table{
@@ -52,6 +58,9 @@
 		img{
 			position: relative;
 		}
+		.checked{
+			color: green;
+		}
 
 	</style>
 </head>
@@ -59,24 +68,45 @@
 	<div class="contenu container-fluid">
 		<div class="croupier">
 			<div class="row">
-				
-				<div class="col-md-1 carte_croupier"></div>
-				<div class="col-md-1 carte_croupier"></div>
-				<div class="col-md-1 carte_croupier"></div>
-				<div class="col-md-1 carte_croupier"></div>
-				<div class="col-md-1 carte_croupier"></div>
-				<div class="col-md-1 carte_croupier"></div>
-				<div class="col-md-1 carte_croupier"></div>
-				<div class="col-md-1 carte_croupier"></div>
-				<div class="col-md-1 carte_croupier"></div>
-				<div class="col-md-1 carte_croupier"></div>
-				<div class="col-md-1 carte_croupier"></div>
-				<div class="col-md-1 carte_croupier"></div>
+				<div class="col-md-1 libre carte_croupier"></div>
+				<div class="col-md-1 libre carte_croupier"></div>
+				<div class="col-md-1 libre carte_croupier"></div>
+				<div class="col-md-1 libre carte_croupier"></div>
+				<div class="col-md-1 libre carte_croupier"></div>
+				<div class="col-md-1 libre carte_croupier"></div>
+				<div class="col-md-1 libre carte_croupier"></div>
+				<div class="col-md-1 libre carte_croupier"></div>
+				<div class="col-md-1 libre carte_croupier"></div>
+				<div class="col-md-1 libre carte_croupier"></div>
+				<div class="col-md-1 libre carte_croupier"></div>
+				<div class="col-md-1"></div>
 			</div>
 		</div>
 		<div class="table">
-			<div class="col-md-1 col-md-offset-5"></div>
-			<div class="col-md-1"></div>
+			<div class="col-md-1 score">
+				<p class="score_joueur">Score joueur : <span>0</span></p>
+				<p class="score_croupier">Score croupier : <span>0</span></p>
+				<p class="main">Cartes en main : <span>0</span></p>
+			</div>
+			<div class="col-md-1 nombres">
+				<p class="mise">Mise: <span style="color: blue;">0</span></p>
+				<p class="parties">Nombre de parties : <span>0</span></p>
+				<p class="argent">Argent restant : <span>1000</span></p>
+			</div>
+			<div class="col-md-1 col-md-offset-2 new">
+				<p>Nouvelle donne</p>
+				<i class="fa fa-repeat fa-4x" aria-hidden="true"></i>
+			</div>
+			<div class="col-md-1 tire">
+				<p>Tirer</p>
+				<br>
+				<i class="fa fa-plus-circle fa-4x" aria-hidden="true"></i>
+			</div>
+			<div class="col-md-1 stop">
+				<p>Fini de tirer</p>
+				<br>
+				<i class="fa fa-stop-circle fa-4x"></i>
+			</div>
 		</div>
 		<div class="joueur ">
 			<div class="row">
@@ -91,7 +121,7 @@
 				<div class="col-md-1 libre carte_joueur"></div>
 				<div class="col-md-1 libre carte_joueur"></div>
 				<div class="col-md-1 libre carte_joueur"></div>
-				<div class="col-md-1 libre carte_joueur"></div>
+				<div class="col-md-1"></div>
 			</div>
 		</div>
 	</div>
