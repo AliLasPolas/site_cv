@@ -13,10 +13,15 @@
 			background-image: url(assets_front/img/secret.jpg);
 			color: #fff;
 		}
+		p{
+			background-color: rgba(40,40,48,0.5);
+			border-radius: 5px;
+			margin-top: 3px;
+		}
 		.rouge{
 			color: #f00;
 		}
-		.contenu{
+		.container-fluid{
 			background-color: rgba(40,40,48,0.9);
 			height: 100vh;
 			width: 100vw;
@@ -26,28 +31,34 @@
 		}
 
 		.croupier{
-			position: fixed;
-			height: 35vh;
+			height: 40vh;
 			width: 100vw;
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
 		}
+		.table_before{
+			height: 20vh;
+			width: 100vw;
+			position: fixed;
+			top: 80vh;
+			background-color: rgba(40,40,48,0.9);
+		}
 
 		.table{
-			position: fixed;
-			height: 30vh;
+			height: 20vh;
 			width: 100vw;
-			top: 35vh;
 			margin: 0;
 			padding: 0;
+			background-size: cover;
+			background-position: top;
+			background-image: url(assets_front/img/tableBackground.jpg);
 		}
 
 		.joueur{
 			margin: 0;
 			padding: 0;
-			position: fixed;
-			height: 35vh;
+			height: 40vh;
 			width: 100vw;
 			top: 65vh;
 		}
@@ -69,16 +80,28 @@
 
 			z-index: 2000;
 		}
+		.fin_tricheur>span{
+			display: block;
+		}
+		.fin_addict>span{
+			display: block;
+		}
+
 
 	</style>
 </head>
 <body>
-	<div class="music_player">
-		
-		<audio id="audio-player" controls autoplay loop>
-			<source src="assets_front/monochrome_clock.mp3" type="audio/mpeg">
-			<p>If you can read this, your browser does not support the audio element.</p>
-		</audio>
+	<div class="fin_tricheur container-fluid" style="display: none;">
+		<span class="act_1" style="opacity: 0">Vous avez trop gagné au casino</span>
+		<span class="act_2" style="opacity: 0">La direction vous accuse de compter les cartes</span>
+		<img class="act_3" style="opacity: 0; height: 50vh;" src="assets_front/img/GTFO.gif" alt="Renvoi">
+		<span class="act_4" style="opacity: 0; height: 50vh;">Vous etes cordialement renvoyé sur le site CV de Ali</span>
+	</div>
+	<div class="fin_addict container-fluid" style="display: none;">
+		<span class="act_1" style="opacity: 0">Vous avez trop perdu au casino</span>
+		<span class="act_2" style="opacity: 0">Vous êtes ruiné et vos biens sont vendus aux enchères</span>
+		<img class="act_3" style="opacity: 0" src="assets_front/img/maison_a_vendre.jpg" alt="Renvoi">
+		<span class="act_4" style="opacity: 0">Vous allez etre redirigé sur le site SOSjoueurs.org</span>
 	</div>
 	<div class="contenu container-fluid">
 		<div class="croupier">
@@ -97,6 +120,23 @@
 				<div class="col-md-1"></div>
 			</div>
 		</div>
+		<div class="joueur ">
+			<div class="row">
+				<div class="col-md-1 libre carte_joueur"></div>
+				<div class="col-md-1 libre carte_joueur"></div>
+				<div class="col-md-1 libre carte_joueur"></div>
+				<div class="col-md-1 libre carte_joueur"></div>
+				<div class="col-md-1 libre carte_joueur"></div>
+				<div class="col-md-1 libre carte_joueur"></div>
+				<div class="col-md-1 libre carte_joueur"></div>
+				<div class="col-md-1 libre carte_joueur"></div>
+				<div class="col-md-1 libre carte_joueur"></div>
+				<div class="col-md-1 libre carte_joueur"></div>
+				<div class="col-md-1 libre carte_joueur"></div>
+				<div class="col-md-1 son_control"></div>
+			</div>
+		</div>
+		<div class="table_before"></div>
 		<div class="table">
 			<div class="col-md-1 score">
 				<p class="score_joueur">Score joueur : <span>0</span></p>
@@ -123,24 +163,9 @@
 				<i class="fa fa-stop-circle fa-4x"></i>
 			</div>
 			<div class="col-md-3 message">
-				<h3>bienvenido</h3>
+				<p></p>
 			</div>
-		</div>
-		<div class="joueur ">
-			<div class="row">
-				<div class="col-md-1 libre carte_joueur"></div>
-				<div class="col-md-1 libre carte_joueur"></div>
-				<div class="col-md-1 libre carte_joueur"></div>
-				<div class="col-md-1 libre carte_joueur"></div>
-				<div class="col-md-1 libre carte_joueur"></div>
-				<div class="col-md-1 libre carte_joueur"></div>
-				<div class="col-md-1 libre carte_joueur"></div>
-				<div class="col-md-1 libre carte_joueur"></div>
-				<div class="col-md-1 libre carte_joueur"></div>
-				<div class="col-md-1 libre carte_joueur"></div>
-				<div class="col-md-1 libre carte_joueur"></div>
-				<div class="col-md-1"></div>
-			</div>
+			<div class="col-md-1 col-md-offset-1"><i class="fa fa-music" aria-hidden="true"></i></div>
 		</div>
 	</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

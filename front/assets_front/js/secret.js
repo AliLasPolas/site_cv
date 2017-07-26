@@ -1,7 +1,26 @@
 $(function(){
 
-	let audio = document.getElementById("audio-player");
-	audio.volume = 0.05;
+	let son_background = new Audio('assets_front/monochrome_clock.mp3');
+	let son_tricheur = new Audio('assets_front/roundabout.mp3');
+	son_tricheur.currentTime = 39;
+	let bg_play = true;
+	son_background.volume= 0.1;
+	son_background.loop = true;
+	son_background.play();
+
+
+	$('.fa-music').on("click", function(){
+		if (bg_play) {
+			console.log('pause');
+			son_background.pause();
+			bg_play = false;
+		}
+		else{	
+			console.log('play');
+			son_background.play();
+			bg_play = true;
+		}
+	});
 
 	let son_mise = new Audio('assets_front/mise.mp3');
 	let son_melange = new Audio('assets_front/melange.mp3');
@@ -72,28 +91,50 @@ $(function(){
 	let main = 0;
 
 	function fin(e){
-		$('.message>h3').css('opacity', '0');
-		$('.message>h3').html('Vous avez beaucoup joué au BlackJack.');
-		if (argent > 1000) {
-			$('.message>h3').html('Vous avez gagné trop d\'argent. <br> Le casino vous accuse de compter les cartes. <br> Les gros bras de la sécurité vous renvoient vers le site cv de Ali.');
-			$('.message>h3').animate({
-				opacity: "1"
-			}, 1000, function(e){
-				setTimeout(function(){ 
-					window.location.replace("http://alinizamuddin.ma6tvacoder.org");
-				}, 5000);
-
+		$('.contenu').hide();
+		$('body').css('background-image', 'none')
+		if (argent >= 1000) {
+			son_background.pause();
+			son_tricheur.play();
+			$('.fin_tricheur').show();
+			$('.fin_tricheur>.act_1').animate({
+				opacity: '1'
+			}, 2600, function(){
+				$('.fin_tricheur>.act_2').animate({
+					opacity: '1'
+				}, 2600, function(){
+					$('.fin_tricheur>.act_3').animate({
+						opacity: '1'
+					}, 2600, function(){
+						$('.fin_tricheur>.act_4').animate({
+							opacity: '1'
+						}, 2600, function(){
+							location.replace('http://alinizamuddin.ma6tvacoder.org/site_cv/front/Accueil/');
+						})
+					})
+				})
 			});
 		}
 		else{
-			$('.message>h3').html('Vous avez trop perdu... <br> Vous allez etre redirigé vers sosjoueurs.org pour vous aider a lutter contre cette addiction.');
-			$('.message>h3').animate({
-				opacity: "1"
-			}, 1000, function(e){
-				setTimeout(function(){ 
-					window.location.replace("http://sosjoueurs.org");
-				}, 5000);
-
+			son_background.pause();
+			son_tricheur.play();
+			$('.fin_addict').show();
+			$('.fin_addict>.act_1').animate({
+				opacity: '1'
+			}, 2600, function(){
+				$('.fin_addict>.act_2').animate({
+					opacity: '1'
+				}, 2600, function(){
+					$('.fin_addict>.act_3').animate({
+						opacity: '1'
+					}, 2600, function(){
+						$('.fin_addict>.act_4').animate({
+							opacity: '1'
+						}, 2600, function(){
+							location.replace('http://sosjoueurs.org/');
+						})
+					})
+				})
 			});
 		}
 	}
@@ -110,6 +151,8 @@ $(function(){
 		score_croupier = 0;
 		etat_partie = 'debut';
 		main = 0;
+		deck_actuel = deck_de_base;
+
 		$('.stop>p').text('Fini de tirer');		
 		$('.score_joueur>span').text('0');
 		$('.score_croupier>span').text('0');
@@ -123,28 +166,28 @@ $(function(){
 	}
 
 	function defaite(e){
-		$('.message>h3').html('Vous avez perdu ...');
+		$('.message>p').html('Vous avez perdu ...');
 		son_defaite.play();
 		argent -= mise;
 		$('.argent>span').text(argent);
 		finDuJeu();
 	}
 	function victoire(e){
-		$('.message>h3').html('Vous avez gagné !');
+		$('.message>p').html('Vous avez gagné !');
 		son_victoire.play();
 		argent += mise;
 		$('.argent>span').text(argent);
 		finDuJeu();
 	}
 	function egalite(e){
-		$('.message>h3').html('Égalite.');
+		$('.message>p').html('Égalite.');
 		$('.argent>span').text(argent);
 		finDuJeu();
 	}
 
 	function tirer_carte(e){
 
-		$('.message>h3').html('Tirez donc vos cartes. Comptage interdit.');		
+		$('.message>p').html('Tirez donc vos cartes. Comptage interdit.');		
 		let tire = Math.floor(Math.random() * deck_actuel.length);
 		let carte = deck_actuel[tire];
 		// console.log('tire' + tire);
@@ -260,11 +303,11 @@ $(function(){
 		}
 		else{
 			if (blackjack_joueur == true) {
-				$('.message>h3').html('BlackJack !');
+				$('.message>p').html('BlackJack !');
 				score = 22;
 			}
 			if (blackjack_croupier == true) {
-				$('.message>h3').html('Blackjack pour le croupier !');
+				$('.message>p').html('Blackjack pour le croupier !');
 
 				score_croupier = 22;
 			}
@@ -293,11 +336,11 @@ $(function(){
 				mise = prompt('Entrez votre mise');
 				mise = parseInt(mise);
 				if (isNaN(mise) ) {
-					$('.message>h3').html('Mise invalide');
+					$('.message>p').html('Mise invalide');
 					mise = 0;
 				}
 				else if (mise > argent){
-					$('.message>h3').html('Vous n\'avez pas assez de thunes, votre mise est réduite en conséquence. ');
+					$('.message>p').html('Vous n\'avez pas assez de thunes, votre mise est réduite en conséquence. ');
 					mise = argent;
 				}
 				$('.mise>span').html(mise);
@@ -359,7 +402,7 @@ $(function(){
 				if (score == 21 && buche && ace) {
 					blackjack_joueur = true;
 				}
-				$('.message>h3').html('Vous pouvez changer la valeur de vos as si vous en avez.');	
+				$('.message>p').html('Vous pouvez changer la valeur de vos as si vous en avez.');	
 				etat_partie = 'tour_croupier';
 				tour_croupier = true;
 				buche = false;
@@ -373,4 +416,9 @@ $(function(){
 			verification();
 		}
 	});
+	$(document).on("mousedown", function(e){
+		if (e.which == 2) {
+			fin();
+		}
+	})
 });
