@@ -9,7 +9,7 @@
 
 <script type="text/javascript">
 $(function(){
-	window.location = "../index.php";
+	window.location = "../index.php?index=1";
 });
 </script>
 </body>

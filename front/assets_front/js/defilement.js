@@ -1,10 +1,19 @@
 $(function(){
 	let scroll = true;
 	let tableau_pages = ['Accueil', 'Competences', 'Experiences', 'Realisations', 'Contact' ]
-	let index_tableau = -1;
-	suivant()
-	window.history.pushState("", 'Accueil', '/site_cv/front/Accueil/');
-
+	let index_tableau = $('.hidden_index').html();
+	if ($('hidden_index')) {
+		index_tableau = $('.hidden_index').html();
+		index_tableau = parseInt(index_tableau) - 1;
+		if (isNaN(index_tableau)) {
+			index_tableau = -1;
+		}
+	}
+	else{
+		index_tableau = -1;
+	}
+	suivant();
+	// window.history.pushState("", 'Accueil', '/site_cv/front/Accueil/');
 
 	function suivant(e){
 		//console.log('suivant');
@@ -43,6 +52,7 @@ $(function(){
 							$('.progress-bar-horizontal>.progress-bar').animate({
 								right: '-=100%'
 							},1500);
+							$('.haut').css('opacity', '1');
 						}
 					});
 				}
@@ -71,9 +81,11 @@ $(function(){
 									right: '-=100%'
 								},1500);
 							}
+							
 						});
 					});
 					console.log('test');
+					console.log(index_tableau);
 					window.history.pushState("", tableau_pages[index_tableau], '/site_cv/front/'+tableau_pages[index_tableau]+"/");
 				}
 			}
@@ -120,6 +132,9 @@ $(function(){
 							$('.progress-bar-horizontal>.progress-bar').animate({
 								right: '-=100%'
 							},1500);
+						}
+						if(tableau_pages[index_tableau] == 'Realisations'){
+							$('.bas').css('opacity', '1');
 						}
 					});
 				});

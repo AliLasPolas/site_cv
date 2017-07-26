@@ -52,7 +52,7 @@
 				</div>
 				<div class="form-group">
 					<label for="texte">Contenu du message</label>
-					<textarea required class="form-control texte_contact" id="texte" rows="1">Contenu du message</textarea>
+					<textarea required class="form-control texte_contact" id="texte" rows="2" placeholder="Contenu du message"></textarea>
 				</div>
 
 				<button type="submit" class="btn btn-primary">Envoyer</button>

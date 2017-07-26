@@ -86,6 +86,10 @@ $(function(){
 		});
 	});
 
+	$(document).on("click", "input, textarea", function(e){
+		$(this).focus();
+	});
+
 	setInterval(function(){ 
 	    var date = new Date();
 	    heure = date.getHours();

@@ -4,6 +4,7 @@
 	$connexion = $pdoCV->query("SELECT * FROM titres_cv t, utilisateurs u WHERE t.utilisateur_id = u.utilisateur_id AND t.utilisateur_id = 1 ");
 	$index = $connexion->fetch();
 	// var_dump($index);
+	
 ?>
 
 
@@ -19,14 +20,22 @@
 	<link rel="stylesheet" type="text/css" href="assets_front/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 	<style type="text/css">
+		.hidden_index{
+			display: none;
+		}
 	</style>
 </head>
 <body>
+<?php 
+	if (isset($_GET['index'])) {
+		echo '<div class="hidden_index">' . $_GET['index'] . '</div>';
+	}
+?>
 
 <div class="contenant">
  	<ul class="nav">
  		<li class="fermer">
- 			<p>Fermer</p>
+ 			<p class="fixed_text">Fermer</p>
  		</li>
 		<li class="nav-item" id="competences">1 - Compétences</li>
 		<li class="nav-item" id="experiences">2 - Formations / Expériences</li>
@@ -37,31 +46,31 @@
 	<div class="container-fluid contenu">
 		<header class="row">
 			<div class="col-xs-2 col-md-1">
-				<p class="menu"> Menu </p>
+				<p class="menu fixed_text"> Menu </p>
 			</div>
 			<div class="col-xs-5 col-xs-offset-1 col-md-2 col-md-offset-4">
-				<p class="haut">
+				<p class="haut fixed_text">
 					Haut de page atteint
 				</p>
 			</div>
 			<div class="col-xs-offset-2 col-xs-2 col-md-1 col-md-offset-4 fermer hidden">
-				<p>Fermer</p>
+				<p class="fixed_text">Fermer</p>
 			</div>
 			<div class="col-xs-offset-1 col-xs-3 col-md-1 col-md-offset-4">
-				<p class="admin"> <a href="/site_cv/admin/index_admin.php">Admin</a></p>
+				<p class="admin fixed_text"> <a href="/site_cv/admin/index_admin.php">Admin</a></p>
 			</div>
 		</header>
 		<main class="row">
 		</main>
 		<footer class="row">
 			<div class="hidden-xs col-xs-3 col-md-1 scroll_down">
-				<p> Descendre </p>
+				<p class="fixed_text"> Descendre </p>
 			</div>
 			<div class="hidden-xs col-xs-3 col-md-1 scroll_up">
-				<p> Remonter </p>
+				<p class="fixed_text"> Remonter </p>
 			</div>
 			<div class="col-xs-5 col-xs-offset-3 col-md-3z col-md-offset-2">
-				<p class="bas">	
+				<p class="bas fixed_text">	
 					Bas de page, mais il reste un petit secret a découvrir.
 				</p>
 				
@@ -69,7 +78,7 @@
 			<div class="col-xs-offset-1 col-xs-2 col-md-1 col-md-offset-3">
 			</div>
 			<div class="hidden-xs col-md-1 col-md-offset-7 col-sm-1">
-				<p class="heure">00:00:00</p>
+				<p class="heure fixed_text">00:00:00</p>
 			</div>
 		</footer>
 	</div>
