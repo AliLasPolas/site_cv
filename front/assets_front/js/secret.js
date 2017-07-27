@@ -9,15 +9,17 @@ $(function(){
 	son_background.play();
 
 
-	$('.fa-music').on("click", function(){
+	$('.fa-2x').on("click", function(){
 		if (bg_play) {
-			console.log('pause');
 			son_background.pause();
+			$(this).removeClass('fa-volume-off');
+			$(this).addClass('fa-play');
 			bg_play = false;
 		}
 		else{	
-			console.log('play');
 			son_background.play();
+			$(this).removeClass('fa-play');
+			$(this).addClass('fa-volume-off');
 			bg_play = true;
 		}
 	});
@@ -61,22 +63,7 @@ $(function(){
 				<div class="col-md-1"></div>
 			</div>`;
 
-	let deck_de_base = [
-		"A.S", "A.C", "A.D", "A.H", 
-		"2.S", "2.C", "2.D", "2.H", 
-		"3.S", "3.C", "3.D", "3.H", 
-		"4.S", "4.C", "4.D", "4.H", 
-		"5.S", "5.C", "5.D", "5.H", 
-		"6.S", "6.C", "6.D", "6.H", 
-		"7.S", "7.C", "7.D", "7.H", 
-		"8.S", "8.C", "8.D", "8.H", 
-		"9.S", "9.C", "9.D", "9.H", 
-		"10.S", "10.C", "10.D", "10.H", 
-		"J.S", "J.C", "J.D", "J.H", 
-		"Q.S", "Q.C", "Q.D", "Q.H", 
-		"K.S", "K.C", "K.D", "K.H"
-	]
-	let deck_actuel = deck_de_base;
+	let deck_actuel = [];
 	console.log(deck_actuel);
 	let mise = 0;
 	let argent = 1000;
@@ -151,7 +138,6 @@ $(function(){
 		score_croupier = 0;
 		etat_partie = 'debut';
 		main = 0;
-		deck_actuel = deck_de_base;
 
 		$('.stop>p').text('Fini de tirer');		
 		$('.score_joueur>span').text('0');
@@ -229,6 +215,9 @@ $(function(){
 
 			}
 			$('.main>span').html(main);
+			if (main > 10) {
+				$('.stop').trigger("click")
+			}
 		});
 	}
 	function tire_croupier(e){
@@ -326,6 +315,22 @@ $(function(){
 	}
 
 	$(document).on("click", '.new', function(e){
+		deck_actuel = [
+		"A.S", "A.C", "A.D", "A.H", 
+		"2.S", "2.C", "2.D", "2.H", 
+		"3.S", "3.C", "3.D", "3.H", 
+		"4.S", "4.C", "4.D", "4.H", 
+		"5.S", "5.C", "5.D", "5.H", 
+		"6.S", "6.C", "6.D", "6.H", 
+		"7.S", "7.C", "7.D", "7.H", 
+		"8.S", "8.C", "8.D", "8.H", 
+		"9.S", "9.C", "9.D", "9.H", 
+		"10.S", "10.C", "10.D", "10.H", 
+		"J.S", "J.C", "J.D", "J.H", 
+		"Q.S", "Q.C", "Q.D", "Q.H", 
+		"K.S", "K.C", "K.D", "K.H"
+	];
+		console.log(deck_actuel);
 		if (etat_partie = 'debut') {
 			if (parties > 8 || argent > 2500 || argent < 1) {
 				fin();
@@ -356,7 +361,6 @@ $(function(){
 	$(document).on("click", '.tire', function(e){
 		if (etat_partie == 'tour_joueur') {
 			tour_croupier = true;
-			deck_actuel = deck_de_base;
 			tirer_carte(e);
 		}
 	});
@@ -407,7 +411,6 @@ $(function(){
 				tour_croupier = true;
 				buche = false;
 				ace = false;
-				deck_actuel = deck_de_base;
 				$('.stop>p').text('Fini de vérifier ses AS ?');
 				tire_croupier(e);
 			}
@@ -416,9 +419,9 @@ $(function(){
 			verification();
 		}
 	});
-	$(document).on("mousedown", function(e){
-		if (e.which == 2) {
-			fin();
-		}
-	})
+	// $(document).on("mousedown", function(e){
+	// 	if (e.which == 2) {
+	// 		fin();
+	// 	}
+	// })
 });

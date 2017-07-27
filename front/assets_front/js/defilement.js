@@ -1,4 +1,5 @@
 $(function(){
+	console.log('Essayez d\'entrer le code konami sur la page...');
 	let scroll = true;
 	let tableau_pages = ['Accueil', 'Competences', 'Experiences', 'Realisations', 'Contact' ]
 	let index_tableau = $('.hidden_index').html();
@@ -84,8 +85,7 @@ $(function(){
 							
 						});
 					});
-					console.log('test');
-					console.log(index_tableau);
+					document.title = tableau_pages[index_tableau];
 					window.history.pushState("", tableau_pages[index_tableau], '/site_cv/front/'+tableau_pages[index_tableau]+"/");
 				}
 			}
@@ -99,7 +99,6 @@ $(function(){
 			//console.log(index_tableau);
 			if (index_tableau == 0) {
 				//console.log('Haut de page atteint');
-				console.log('lin');
 				$('.haut').stop();
 				$('.haut').animate({
 					bottom: "-=50px",
@@ -138,6 +137,7 @@ $(function(){
 						}
 					});
 				});
+				document.title = tableau_pages[index_tableau];
 				window.history.pushState("", tableau_pages[index_tableau], '/site_cv/front/'+tableau_pages[index_tableau]+"/");
 			}
 		}

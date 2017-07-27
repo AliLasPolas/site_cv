@@ -3,7 +3,8 @@
 <head>
 	<title>Blackjack</title>
 	<meta charset="utf-8">
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
@@ -74,12 +75,7 @@
 		.checked{
 			color: green;
 		}
-		#audio-player{
-			position: fixed;
-			left: -2000px;
 
-			z-index: 2000;
-		}
 		.fin_tricheur>span{
 			display: block;
 		}
@@ -104,6 +100,8 @@
 		<span class="act_4" style="opacity: 0">Vous allez etre redirigé sur le site SOSjoueurs.org</span>
 	</div>
 	<div class="contenu container-fluid">
+		<i class="fa fa-volume-off fa-2x" aria-hidden="true"></i>
+
 		<div class="croupier">
 			<div class="row">
 				<div class="col-md-1 libre carte_croupier"></div>
@@ -148,7 +146,8 @@
 				<p class="parties">Nombre de parties : <span>0</span></p>
 				<p class="argent">Argent restant : <span>1000</span></p>
 			</div>
-			<div class="col-md-1 col-md-offset-2 new">
+			<div class="col-md-2"></div>
+			<div class="col-md-1 new">
 				<p>Nouvelle donne</p>
 				<i class="fa fa-repeat fa-4x" aria-hidden="true"></i>
 			</div>
@@ -162,10 +161,9 @@
 				<br>
 				<i class="fa fa-stop-circle fa-4x"></i>
 			</div>
-			<div class="col-md-3 message">
+			<div class="col-md-4 message">
 				<p></p>
 			</div>
-			<div class="col-md-1 col-md-offset-1"><i class="fa fa-music" aria-hidden="true"></i></div>
 		</div>
 	</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
