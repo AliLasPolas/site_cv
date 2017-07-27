@@ -8,7 +8,6 @@
 
 	.desktop{
 		height: 70%;
-		margin-top: 7%;
 	}
 
 	.mobile{
@@ -16,7 +15,7 @@
 		margin-top: 4%;
 	}
 
-	.progress-bar-vertical {
+	.barre-prog-vertical {
 	  width: 20px;
 	  height: 60vh;
 	  display: flex;
@@ -24,35 +23,45 @@
 	  margin-right: 20px;
 	  float: left;
 	}	
-	.progress-bar-horizontal {
+	.barre-prog-horizontal {
 	  width: 100%;
 	  height: 20px;
 	  display: flex;
 	  align-items: flex-end;
-	  margin-top: 20px;
+	  margin-top: 10px;
 	  /*float: left;*/
 	}
 
-	.progress-bar-vertical .progress-bar {
+	.barre-prog-vertical .barre-prog {
 	  width: 100%;
 	  height: 0;
 	  -webkit-transition: width 6s ease;
 	  -o-transition: width 6s ease;
 	  transition: width 6s ease;
 	  position: relative;
+	  background-color: #5F6A6A;
 	}
 
-	.progress-bar-horizontal .progress-bar {
+	.barre-prog-horizontal .barre-prog {
 	  height: 100%;
 	  width: 30%;
 	  -webkit-transition: width 6s ease;
 	  -o-transition: width 6s ease;
 	  transition: width 6s ease;
 	  position: relative;
+	  background-color: #5F6A6A;
+
 	}
 
 	.competence{
 		padding-left: 2%; 
+	}
+	h1{
+		margin-bottom: 15%;
+	}
+	p{
+		margin: 0;
+		padding: 0;
 	}
 
 </style>
@@ -66,8 +75,8 @@
 		<div class="col-md-2 hidden-xs hidden-sm"></div>
 			<?php foreach ($competences as $competence): ?>
 					<div class="col-md-1 competence <?= $competence['competence'] ?> " >
-						<div id="<?= $competence['competence'] ?>" class="progress progress-bar-vertical"">
-							<div class="progress-bar" role="progressbar" aria-valuenow="<?= $competence['niveau'] ?>" aria-valuemin="0" aria-valuemax="100" style="height: <?= $competence['niveau'] ?>%;">
+						<div id="<?= $competence['competence'] ?>" class="progress barre-prog-vertical"">
+							<div class="barre-prog" role="progressbar" aria-valuenow="<?= $competence['niveau'] ?>" aria-valuemin="0" aria-valuemax="100" style="height: <?= $competence['niveau'] ?>%;">
 						      <span class="sr-only"><?= $competence['competence'] ?></span>
 						    </div>
 						</div>
@@ -98,8 +107,8 @@
 		</div>
 		<div class="row competence_barre">
 			<div class="col-xs-12 col-sm-12">
-				<div id="<?= $competence['competence'] ?>" class="progress progress-bar-horizontal"">
-					<div class="progress-bar" role="progressbar" aria-valuenow="<?= $competence['niveau'] ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $competence['niveau'] ?>%;">
+				<div id="<?= $competence['competence'] ?>" class="progress barre-prog-horizontal"">
+					<div class="barre-prog" role="progressbar" aria-valuenow="<?= $competence['niveau'] ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $competence['niveau'] ?>%;">
 				      <span class="sr-only"><?= $competence['competence'] ?></span>
 				    </div>
 				</div>

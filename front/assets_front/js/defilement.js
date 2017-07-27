@@ -45,12 +45,12 @@ $(function(){
 						}, 500);
 					    if (tableau_pages[index_tableau] == 'Competences') {
 							//console.log('animation barres');
-							$('.progress-bar-vertical>.progress-bar').css('top', '+=100%');
-							$('.progress-bar-vertical>.progress-bar').animate({
+							$('.barre-prog-vertical>.barre-prog').css('top', '+=100%');
+							$('.barre-prog-vertical>.barre-prog').animate({
 								top: '-=100%'
 							},1500);
-							$('.progress-bar-horizontal>.progress-bar').css('right', '+=100%');
-							$('.progress-bar-horizontal>.progress-bar').animate({
+							$('.barre-prog-horizontal>.barre-prog').css('right', '+=100%');
+							$('.barre-prog-horizontal>.barre-prog').animate({
 								right: '-=100%'
 							},1500);
 							$('.haut').css('opacity', '1');
@@ -73,12 +73,12 @@ $(function(){
 							}, 500);
 						    if (tableau_pages[index_tableau] == 'Competences') {
 								//console.log('animation barres');
-								$('.progress-bar-vertical>.progress-bar').css('top', '+=100%');
-								$('.progress-bar-vertical>.progress-bar').animate({
+								$('.barre-prog-vertical>.barre-prog').css('top', '+=100%');
+								$('.barre-prog-vertical>.barre-prog').animate({
 									top: '-=100%'
 								},1500);
-								$('.progress-bar-horizontal>.progress-bar').css('right', '+=100%');
-								$('.progress-bar-horizontal>.progress-bar').animate({
+								$('.barre-prog-horizontal>.barre-prog').css('right', '+=100%');
+								$('.barre-prog-horizontal>.barre-prog').animate({
 									right: '-=100%'
 								},1500);
 							}
@@ -123,12 +123,12 @@ $(function(){
 						}, 500);
 						if (tableau_pages[index_tableau] == 'Competences') {
 							//console.log('animation barres');
-							$('.progress-bar-vertical>.progress-bar').css('top', '+=100%');
-							$('.progress-bar-vertical>.progress-bar').animate({
+							$('.barre-prog-vertical>.barre-prog').css('top', '+=100%');
+							$('.barre-prog-vertical>.barre-prog').animate({
 								top: '-=100%'
 							},1500);
-							$('.progress-bar-horizontal>.progress-bar').css('right', '+=100%');
-							$('.progress-bar-horizontal>.progress-bar').animate({
+							$('.barre-prog-horizontal>.barre-prog').css('right', '+=100%');
+							$('.barre-prog-horizontal>.barre-prog').animate({
 								right: '-=100%'
 							},1500);
 						}

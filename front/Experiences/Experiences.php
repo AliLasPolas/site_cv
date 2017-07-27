@@ -161,7 +161,6 @@
 			</div>
 			<div class="col-sm-11 col-xs-11">
 				<p><?= $result[1] ?> / <?= $result['date'] ?> </p>
-				<br>
 				<p><?= $result[4] ?></p>
 			</div>
 		</div>
