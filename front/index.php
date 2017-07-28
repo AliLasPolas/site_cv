@@ -48,7 +48,7 @@
 			<div class="col-xs-2 col-md-1">
 				<p class="menu fixed_text"> Menu </p>
 			</div>
-			<div class="col-xs-5 col-xs-offset-1 col-md-2 col-md-offset-4">
+			<div class="col-xs-4 col-xs-offset-1 col-md-2 col-md-offset-4">
 				<p class="haut fixed_text">
 					Haut de page atteint
 				</p>
@@ -56,20 +56,20 @@
 			<div class="col-xs-offset-2 col-xs-2 col-md-1 col-md-offset-4 fermer hidden">
 				<p class="fixed_text">Fermer</p>
 			</div>
-			<div class="col-xs-offset-1 col-xs-3 col-md-1 col-md-offset-4">
+			<div class="col-xs-offset-2 col-xs-3 col-md-1 col-md-offset-4">
 				<p class="admin fixed_text"> <a href="/site_cv/admin/index_admin.php">Admin</a></p>
 			</div>
 		</header>
 		<main class="row">
 		</main>
 		<footer class="row">
-			<div class="hidden-xs col-xs-3 col-md-1 scroll_down">
+			<div class="hidden-xs col-md-1 scroll_down">
 				<p class="fixed_text"> Descendre </p>
 			</div>
-			<div class="hidden-xs col-xs-3 col-md-1 scroll_up">
+			<div class="hidden-xs col-md-1 scroll_up">
 				<p class="fixed_text"> Remonter </p>
 			</div>
-			<div class="col-xs-5 col-xs-offset-3 col-md-3z col-md-offset-2">
+			<div class="col-xs-12 col-md-3 col-md-offset-2">
 				<p class="bas fixed_text">	
 					Bas de page, mais il reste un petit secret a découvrir.
 				</p>

@@ -19,6 +19,13 @@
 	label{
 		font-size: 0.7em;
 	}
+	img{
+		height: 48px;
+		width: 48px;
+	}
+	.form-group{
+		margin: 5px;
+	}
 </style>
 
 <div class="col-md-12 content">
