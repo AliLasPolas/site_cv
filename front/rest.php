@@ -20,12 +20,14 @@ if ($_POST) {
 		}
 		if ( !filter_var($_POST['email_contact'], FILTER_VALIDATE_EMAIL) ) {
 			$erreur .= '<br>Adresse email non conforme. Veuillez vous conformer<br>';
-		}			
-		if (strlen($_POST['telephone_contact']) < 10 ) {
-			$erreur .= 'Numéro de téléphone non valide . Vous n\'etes pas obligé de le renseigner <br>';
+		}
+		if (!empty($_POST['telephone_contact'])) {
+			if (strlen($_POST['telephone_contact']) < 10 ) {
+				$erreur .= 'Numéro de téléphone non valide . Vous n\'etes pas obligé de le renseigner <br>';
+			}
 		}
 		if (strlen($_POST['texte_contact']) < 30 ) {
-			$erreur .= 'Message incorrectement court. Veuillez faire preuve d\'un minimum de verbiage. Lisez un peu Shakespeare pour vous inspirer <br>';
+			$erreur .= 'Message incorrectement court. Veuillez faire preuve d\'un minimum de verbiage. Lisez un peu Proust pour vous inspirer <br>';
 		}			
 		if ($erreur == '') {
 			foreach ($_POST as $key => $value) {

@@ -25,7 +25,7 @@ $(function(){
 				//console.log('Fin de page atteint');
 				$('.bas').animate({
 					top: "-=50px",
-				}, 500).delay(800).animate({
+				}, 500).delay(2000).animate({
 					top: "+=50px",
 					opacity: "0"
 				});
