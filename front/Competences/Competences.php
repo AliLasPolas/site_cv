@@ -12,7 +12,7 @@
 
 	.mobile{
 		height: 100%;
-		margin-top: 4%;
+		margin-top: 2%;
 	}
 
 	.barre-prog-vertical {
@@ -28,7 +28,7 @@
 	  height: 20px;
 	  display: flex;
 	  align-items: flex-end;
-	  margin-top: 10px;
+	  margin-top: 5px;
 	  /*float: left;*/
 	}
 
@@ -57,7 +57,7 @@
 		padding-left: 2%; 
 	}
 	h1{
-		margin-bottom: 15%;
+		margin-bottom: 7%;
 	}
 	p{
 		margin: 0;

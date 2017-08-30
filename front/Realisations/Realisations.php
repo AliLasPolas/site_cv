@@ -1,32 +1,69 @@
+<?php require_once'../../admin/include/connexion.php'; ?>
+<?php 
+
+	$connexion = $pdoCV->query("SELECT * FROM realisations WHERE utilisateur_id = 1 ");
+	$realisations = $connexion->fetchAll();
+?>
+
 <style>
 	.content{
 		text-align: center;
 	}
+	figure{
+		display: table;
+		margin-right: auto;
+		margin-left: auto;
+		width: 100%;
+
+	}
 	img{
 		width: 100%;
+	}
+	figcaption{
+		overflow: hidden;
+		text-align: center;
+		font-size: 1.2em;
+		line-height: 1.6em;
+		font-weight: 400;
+		color: #fff;
+		background-color: rgba(0,0,0, 0.8);
+		position: relative;
+		top: -1.59em;
+		z-index: 3;
 	}
 	b{
 		font-size: 19px;
 	}
 </style>
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-6  content">
+<div class="col-xs-12 col-sm-offset-1 col-sm-10 content">
 	<div class="row">
 		<div class="col-md-12 col-xs-12">	
 			<h1>Réalisations</h1>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-12 col-xs-12">	
-		<br>
-			<p>Vous êtes actuellement en train de naviguer sur ma seule réalisation en ligne, vous pouvez vous enquérir des spécificités, vous pouvez jeter un oeil au code source ou a la <b>console</b>. Si vous souhaitez voir l'intégralité de les activités, veuillez visiter mon compte GitHub :</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2 col-xs-12">	
-			<a href="https://github.com/AliLasPolas">
-				<img class="img-fluid" src="/site_cv/front/assets_front/img/github-512.png" alt="Lien vers le github">
-			</a>
-		</div>
-	</div>
+	<?php for( $i = 0; $i < 4; $i++) : ?>
+			<?php if ($i == 0): ?>
+				<?php echo '<div class="row">' ?>
+			<?php endif ?>
+			<?php if ($i == 2): ?>
+				<?php echo '<div class="row hidden-xs">' ?>
+			<?php endif ?>
+
+			<?php if (isset($realisations[$i]) && $i < 4): ?>
+				
+			<div class="col-md-1 hidden-xs"></div>
+			<div class="col-md-5 col-xs-12">
+				<figure>
+					<a target='blank' href="<?= $realisations[$i]['lien_r'] ?>">
+						<img src="img/<?= $realisations[$i]['image_r'] ?>" alt='<?= $realisations[$i]['sous_titre_r'] ?>'>
+					</a>
+					<figcaption> <?= $realisations[$i]['titre_r'] ?> </figcaption>
+				</figure>
+			</div>
+			<?php endif ?>
+			<?php if ($i == 1 ): ?>
+				<?php echo '</div>' ?>
+			<?php endif ?>
+	<?php endfor ?>
 </div>

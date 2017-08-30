@@ -13,21 +13,21 @@ if ($_POST) {
 	if(isset($_POST['pseudo_contact'])){
 		// print_r($_POST);
 		if (strlen($_POST['sujet_contact']) < 1 ) {
-			$erreur .= 'Veuillez renseigner le sujet de votre message (messages d\'insultes bienvenus) <br>';
+			$erreur .= 'Veuillez renseigner le sujet de votre message (messages d\'insultes bienvenus). <br>';
 		}
 		if (strlen($_POST['pseudo_contact']) < 3 ) {
-			$erreur .= 'Pseudo incorrectement court. Veuillez allonger votre pseudonyme<br>';
+			$erreur .= 'Pseudo incorrectement court. Veuillez allonger votre pseudonyme..<br>';
 		}
 		if ( !filter_var($_POST['email_contact'], FILTER_VALIDATE_EMAIL) ) {
-			$erreur .= '<br>Adresse email non conforme. Veuillez vous conformer<br>';
+			$erreur .= '<br>Adresse email non conforme. Veuillez vous conformer.<br>';
 		}
 		if (!empty($_POST['telephone_contact'])) {
 			if (strlen($_POST['telephone_contact']) < 10 ) {
-				$erreur .= 'Numéro de téléphone non valide . Vous n\'etes pas obligé de le renseigner <br>';
+				$erreur .= 'Numéro de téléphone non valide . Vous n\'etes pas obligé de le renseigner. <br>';
 			}
 		}
-		if (strlen($_POST['texte_contact']) < 30 ) {
-			$erreur .= 'Message incorrectement court. Veuillez faire preuve d\'un minimum de verbiage. Lisez un peu Proust pour vous inspirer <br>';
+		if (strlen($_POST['texte_contact']) < 15 ) {
+			$erreur .= 'Message incorrectement court. Veuillez faire preuve d\'un minimum de verbiage. Lisez un peu Proust pour vous inspirer. <br>';
 		}			
 		if ($erreur == '') {
 			foreach ($_POST as $key => $value) {

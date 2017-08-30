@@ -64,10 +64,10 @@
 		</main>
 		<footer class="row">
 			<div class="hidden-xs col-md-1 scroll_down">
-				<p class="fixed_text"> Descendre </p>
+				<p class="fixed_text"> Suivant </p>
 			</div>
 			<div class="hidden-xs col-md-1 scroll_up">
-				<p class="fixed_text"> Remonter </p>
+				<p class="fixed_text"> Précédent </p>
 			</div>
 			<div class="col-xs-12 col-md-3 col-md-offset-2">
 				<p class="bas fixed_text">	
@@ -77,7 +77,7 @@
 			</div>
 			<div class="col-xs-offset-1 col-xs-2 col-md-1 col-md-offset-3">
 			</div>
-			<div class="hidden-xs col-md-1 col-md-offset-7 col-sm-1">
+			<div class="hidden-xs col-md-1 col-sm-1">
 				<p class="heure fixed_text">00:00:00</p>
 			</div>
 		</footer>
